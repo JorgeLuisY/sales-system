@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/F:/sales-system/src/javamysql/JavaMysql.java</file>
+            <file>file:/F:/sales-system/src/salessystem/SalesSystem.java</file>
+        </group>
+>>>>>>> 234c0cfa16bdcc61a599a1d238a9e4d9f12d7f11
     </open-files>
 </project-private>
