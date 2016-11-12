@@ -1,8 +1,8 @@
 
-package javamysql;
+package conexion;
 import java.sql.*;
 
-public class JavaMysql {
+public class clsConexion {
 
    
     public static void main(String[] args) {
