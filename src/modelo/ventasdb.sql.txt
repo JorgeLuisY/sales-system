@@ -1,0 +1,181 @@
+-- Crear y usar la base de datos 
+create database dbventas;
+use dbventas;
+
+CREATE TABLE cliente
+(
+	id                   BIGINT NOT NULL AUTO_INCREMENT,
+	nombreRZ             VARCHAR(40) NULL,
+	ruc                  NUMERIC(11) NULL,
+	dni                  INTEGER NULL,
+	direccion            VARCHAR(20) NULL,
+	telefono             VARCHAR(12) NULL,
+	observac.            VARCHAR(40) NULL,
+	PRIMARY KEY (id)
+);
+
+
+CREATE TABLE venta
+(
+	serie                INTEGER NOT NULL,
+	clienteid            BIGINT NOT NULL,
+	nroVenta             INTEGER NULL,
+	cantidad             INTEGER NULL,
+	tipodocumento        VARCHAR(20) NULL,
+	PRIMARY KEY (serie),
+	FOREIGN KEY R_27 (clienteid) REFERENCES cliente (id)
+);
+
+
+
+CREATE TABLE almacen
+(
+	id                   BIGINT NOT NULL ,
+	estado               VARCHAR(20) NULL,
+	stock                INTEGER NULL,
+	stockmin             INTEGER NULL,
+	PRIMARY KEY (id)
+);
+
+
+CREATE TABLE detalleventa
+(
+	id                   BIGINT NOT NULL,
+	serie                INTEGER NOT NULL,
+	aproductoid          INTEGER NOT NULL,
+	importe              DEC(5,2) NULL,
+	cambio               DECIMAL(5,2) NULL,
+	total                DECIMAL(5) NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY R_22 (serie) REFERENCES venta (serie),
+	FOREIGN KEY R_23 (aproductoid) REFERENCES almacen (id)
+);
+
+
+CREATE TABLE producto
+(
+	id                   BIGINT NOT NULL AUTO_INCREMENT,
+	codigoBarra          NUMERIC(15) NULL,
+	nombre               VARCHAR(20) NULL,
+	descipcion           VARCHAR(40) NULL,
+	preCosto             DECIMAL(5,2) NULL,
+	preVenta             DECIMAL(5,2) NULL,
+	categoria            VARCHAR(20) NULL,
+	codigoAltern         VARCHAR(15) NULL,
+	utilidad             DECIMAL(5,2) NULL,
+	PRIMARY KEY (id)
+);
+
+
+CREATE TABLE proveedor
+(
+	id                   BIGINT NOT NULL AUTO_INCREMENT,
+	nombreProv           VARCHAR(40) NULL,
+	ruc                  NUMERIC(11) NULL,
+	direccion            VARCHAR(60) NULL,
+	telefono             VARCHAR(12) NULL,
+	email                VARCHAR(40) NULL,
+	numCuenta1           INTEGER NULL,
+	numCuenta2           INTEGER NULL,
+	observacion          VARCHAR(40) NULL,
+	estado               VARCHAR(20) NULL,
+	celular              INTEGER NULL,
+	dni                  INTEGER NULL,
+	PRIMARY KEY (id)
+);
+
+
+
+CREATE TABLE compra
+(
+	nro.Compra           INTEGER NOT NULL,
+	proovedorid          BIGINT NOT NULL,
+	fechaCompra          TIMESTAMP NULL,
+	cantidad             INTEGER NULL,
+	tipodocumento        VARCHAR(20) NULL,
+	PRIMARY KEY (nro.Compra),
+	FOREIGN KEY R_15 (proovedorid) REFERENCES proveedor (id)
+);
+
+
+CREATE TABLE detallecompra
+(
+	id                   BIGINT NOT NULL,
+	almacenid            BIGINT NOT NULL,
+	nro.Compra           INTEGER NOT NULL,
+	productoid           BIGINT NOT NULL,
+	fechaCompra          TIMESTAMP NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY R_18 (productoid) REFERENCES producto (id),
+	FOREIGN KEY R_19 (nro.Compra) REFERENCES compra (nro.Compra),
+	FOREIGN KEY R_20 (almacenid) REFERENCES almacen (id)
+);
+
+
+CREATE TABLE tipobase
+(
+	tipoCode             VARCHAR(20) NOT NULL,
+	tipoCategoria        VARCHAR(20) NULL,
+	descripcion          VARCHAR(100) NULL,
+	registradopor        VARCHAR(20) NULL,
+	PRIMARY KEY (tipoCode)
+);
+
+
+
+CREATE TABLE usuario
+(
+	id                   BIGINT NOT NULL AUTO_INCREMENT,
+	usuario              VARCHAR(20) NULL,
+	password             VARCHAR(20) NULL,
+	fechaInicio          TIMESTAMP NULL,
+	fechaFin             TIMESTAMP NULL,
+	PRIMARY KEY (id)
+);
+
+
+CREATE TABLE rol
+(
+	id                   BIGINT NOT NULL AUTO_INCREMENT,
+	rolnombre            VARCHAR(40) NULL,
+	descripcion          VARCHAR(40) NULL,
+	rolvalor             VARCHAR(20) NULL,
+	estado               VARCHAR(20) NULL,
+	PRIMARY KEY (id)
+);
+
+
+
+CREATE TABLE tipoUsuario
+(
+	usuarioid            BIGINT NOT NULL,
+	rolid                BIGINT NOT NULL,
+	creadoPor            VARCHAR(20) NULL,
+	fechCrea             TIMESTAMP NULL,
+	descripcion          VARCHAR(40) NULL,
+	PRIMARY KEY (usuarioid),
+	FOREIGN KEY R_4 (usuarioid) REFERENCES usuario (id),
+	FOREIGN KEY R_5 (rolid) REFERENCES rol (id)
+);
+
+
+
+CREATE TABLE empleado
+(
+	id                   BIGINT NOT NULL AUTO_INCREMENT,
+	tipoUsuarioid        BIGINT NOT NULL,
+	nombre               VARCHAR(30) NULL,
+	apellido             VARCHAR(40) NULL,
+	sexo                 CHAR(1) NULL,
+	fechNac              TIMESTAMP NULL,
+	direccion            VARCHAR(60) NULL,
+	telefono             VARCHAR(12) NULL,
+	celular              INTEGER NULL,
+	dni                  INTEGER NULL,
+	fechIngreso          TIMESTAMP NULL,
+	email                VARCHAR(50) NULL,
+	sueldo               DECIMAL(5,2) NULL,
+	estado               VARCHAR(20) NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY R_6 (tipoUsuarioid) REFERENCES tipoUsuario (usuarioid)
+);
