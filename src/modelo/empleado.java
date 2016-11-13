@@ -1,21 +1,41 @@
 
 package modelo;
-
+import java.util.*;
 
 public class empleado {
     private int id_empleado;
-    private String empleado_nombre;
-    private String empleado_apellido;
-    private String empleado_sexo;
-    private String empleado_fechNac;
-    private String empleado_direccion;
-    private String empleado_telefono;
-    private String empleado_celular;
-    private int empleado_dni;
-    private String empleado_fechaIng;
-    private String empleado_email;
-    private double empleado_sueldo;
-    private String empleado_estado;
+    private int  tipoUsuario;
+    private String nombre;
+    private String apellido;
+    private char sexo;
+    private Date fechNac;
+    private String direccion;
+    private String telefono;
+    private int celular;
+    private int dni;
+    private Date fechaIngreso;
+    private String email;
+    private Double Sueldo;
+    private String estado;
+
+    public empleado(int id_empleado, int tipoUsuario, String nombre, String apellido, char sexo,String direccion, String telefono, int celular, int dni,
+            String email, Double Sueldo, String estado,int agno,int mes,int dia) {
+        GregorianCalendar calendario=new GregorianCalendar(agno,mes-1,dia);
+        this.id_empleado = id_empleado;
+        this.tipoUsuario = tipoUsuario;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.sexo = sexo;
+        this.fechNac = calendario.getTime();
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.celular = celular;
+        this.dni = dni;
+        this.fechaIngreso = calendario.getTime();
+        this.email = email;
+        this.Sueldo = Sueldo;
+        this.estado = estado;
+    }
 
     public int getId_empleado() {
         return id_empleado;
@@ -25,103 +45,107 @@ public class empleado {
         this.id_empleado = id_empleado;
     }
 
-    public String getEmpleado_nombre() {
-        return empleado_nombre;
+    public int getTipoUsuario() {
+        return tipoUsuario;
     }
 
-    public void setEmpleado_nombre(String empleado_nombre) {
-        this.empleado_nombre = empleado_nombre;
+    public void setTipoUsuario(int tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 
-    public String getEmpleado_apellido() {
-        return empleado_apellido;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setEmpleado_apellido(String empleado_apellido) {
-        this.empleado_apellido = empleado_apellido;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getEmpleado_sexo() {
-        return empleado_sexo;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setEmpleado_sexo(String empleado_sexo) {
-        this.empleado_sexo = empleado_sexo;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-    public String getEmpleado_fechNac() {
-        return empleado_fechNac;
+    public char getSexo() {
+        return sexo;
     }
 
-    public void setEmpleado_fechNac(String empleado_fechNac) {
-        this.empleado_fechNac = empleado_fechNac;
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
     }
 
-    public String getEmpleado_direccion() {
-        return empleado_direccion;
+    public Date getFechNac() {
+        return fechNac;
     }
 
-    public void setEmpleado_direccion(String empleado_direccion) {
-        this.empleado_direccion = empleado_direccion;
+    public void setFechNac(Date fechNac) {
+        this.fechNac = fechNac;
     }
 
-    public String getEmpleado_telefono() {
-        return empleado_telefono;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setEmpleado_telefono(String empleado_telefono) {
-        this.empleado_telefono = empleado_telefono;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public String getEmpleado_celular() {
-        return empleado_celular;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setEmpleado_celular(String empleado_celular) {
-        this.empleado_celular = empleado_celular;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
-    public int getEmpleado_dni() {
-        return empleado_dni;
+    public int getCelular() {
+        return celular;
     }
 
-    public void setEmpleado_dni(int empleado_dni) {
-        this.empleado_dni = empleado_dni;
+    public void setCelular(int celular) {
+        this.celular = celular;
     }
 
-    public String getEmpleado_fechaIng() {
-        return empleado_fechaIng;
+    public int getDni() {
+        return dni;
     }
 
-    public void setEmpleado_fechaIng(String empleado_fechaIng) {
-        this.empleado_fechaIng = empleado_fechaIng;
+    public void setDni(int dni) {
+        this.dni = dni;
     }
 
-    public String getEmpleado_email() {
-        return empleado_email;
+    public Date getFechaIngreso() {
+        return fechaIngreso;
     }
 
-    public void setEmpleado_email(String empleado_email) {
-        this.empleado_email = empleado_email;
+    public void setFechaIngreso(Date fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
     }
 
-    public double getEmpleado_sueldo() {
-        return empleado_sueldo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmpleado_sueldo(double empleado_sueldo) {
-        this.empleado_sueldo = empleado_sueldo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getEmpleado_estado() {
-        return empleado_estado;
+    public Double getSueldo() {
+        return Sueldo;
     }
 
-    public void setEmpleado_estado(String empleado_estado) {
-        this.empleado_estado = empleado_estado;
+    public void setSueldo(Double Sueldo) {
+        this.Sueldo = Sueldo;
     }
-    
-    
-    
-    
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 }

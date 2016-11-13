@@ -2,17 +2,42 @@
 package modelo;
 
 public class venta {
-    private int serie_decompra;
-    private int cantidad;
-    private int noroVenta;
+    private int serie;
     private int clienteid;
+    private int nroVenta;
+    private int cantidad;
+    private String tipodocumento;
 
-    public int getSerie_decompra() {
-        return serie_decompra;
+    public venta(int serie, int clienteid, int nroVenta, int cantidad, String tipodocumento) {
+        this.serie = serie;
+        this.clienteid = clienteid;
+        this.nroVenta = nroVenta;
+        this.cantidad = cantidad;
+        this.tipodocumento = tipodocumento;
     }
 
-    public void setSerie_decompra(int serie_decompra) {
-        this.serie_decompra = serie_decompra;
+    public int getSerie() {
+        return serie;
+    }
+
+    public void setSerie(int serie) {
+        this.serie = serie;
+    }
+
+    public int getClienteid() {
+        return clienteid;
+    }
+
+    public void setClienteid(int clienteid) {
+        this.clienteid = clienteid;
+    }
+
+    public int getNroVenta() {
+        return nroVenta;
+    }
+
+    public void setNroVenta(int nroVenta) {
+        this.nroVenta = nroVenta;
     }
 
     public int getCantidad() {
@@ -23,20 +48,12 @@ public class venta {
         this.cantidad = cantidad;
     }
 
-    public int getNoroVenta() {
-        return noroVenta;
+    public String getTipodocumento() {
+        return tipodocumento;
     }
 
-    public void setNoroVenta(int noroVenta) {
-        this.noroVenta = noroVenta;
-    }
-
-    public int getClienteid() {
-        return clienteid;
-    }
-
-    public void setClienteid(int clienteid) {
-        this.clienteid = clienteid;
+    public void setTipodocumento(String tipodocumento) {
+        this.tipodocumento = tipodocumento;
     }
     
     

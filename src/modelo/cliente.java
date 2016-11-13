@@ -7,8 +7,18 @@ public class cliente {
     private int ruc;
     private int dni;
     private String direccion;
-    private int telefono;
+    private String telefono;
     private String observaciones;
+
+    public cliente(int id_cliente, String nombre, int ruc, int dni, String direccion, String telefono, String observaciones) {
+        this.id_cliente = id_cliente;
+        this.nombre = nombre;
+        this.ruc = ruc;
+        this.dni = dni;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.observaciones = observaciones;
+    }
 
     public int getId_cliente() {
         return id_cliente;
@@ -50,11 +60,11 @@ public class cliente {
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

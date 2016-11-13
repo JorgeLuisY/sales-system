@@ -1,36 +1,36 @@
 
 package modelo;
-
+import java.util.*;
 
 public class tipo_usuario {
-    private int usuario_idFK;
-    private String rolidFK;
-    private String descripcion;
+    private int usuario;
+    private int rolid;
     private String creadoPor;
-    private String fechaCrea;
+    private Date fechaCrea;
+    private String descripcion;
 
-    public int getUsuario_idFK() {
-        return usuario_idFK;
+    public tipo_usuario(int usuario, int rolid, String creadoPor, String descripcion,int agno,int mes,int dia) {
+        this.usuario = usuario;
+        this.rolid = rolid;
+        this.creadoPor = creadoPor;
+        GregorianCalendar calendario=new GregorianCalendar(agno,mes-1,dia);
+        this.fechaCrea=calendario.getTime();
     }
 
-    public void setUsuario_idFK(int usuario_idFK) {
-        this.usuario_idFK = usuario_idFK;
+    public int getUsuario() {
+        return usuario;
     }
 
-    public String getRolidFK() {
-        return rolidFK;
+    public void setUsuario(int usuario) {
+        this.usuario = usuario;
     }
 
-    public void setRolidFK(String rolidFK) {
-        this.rolidFK = rolidFK;
+    public int getRolid() {
+        return rolid;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setRolid(int rolid) {
+        this.rolid = rolid;
     }
 
     public String getCreadoPor() {
@@ -41,12 +41,20 @@ public class tipo_usuario {
         this.creadoPor = creadoPor;
     }
 
-    public String getFechaCrea() {
+    public Date getFechaCrea() {
         return fechaCrea;
     }
 
-    public void setFechaCrea(String fechaCrea) {
+    public void setFechaCrea(Date fechaCrea) {
         this.fechaCrea = fechaCrea;
     }
-    
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
 }

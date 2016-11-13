@@ -1,15 +1,22 @@
 
 package modelo;
-
+import java.util.*;
 
 public class compra {
     private int nroCompra;
-    private int documento;
-    private String fechaV;
+    private int proovedorid;
+    private Date fechaCompra;
     private int cantidad;
-    private int total;
-    private int idProducto;
-    private int idProveedor;
+    private String tipodocumento;
+
+    public compra(int nroCompra, int proovedorid, int cantidad, String tipodocumento,int agno,int mes,int dia) {
+        this.nroCompra = nroCompra;
+        this.proovedorid = proovedorid;
+        this.cantidad = cantidad;
+        this.tipodocumento = tipodocumento;
+        GregorianCalendar calendario=new GregorianCalendar(agno,mes-1,dia);
+        this.fechaCompra=calendario.getTime();
+    }
 
     public int getNroCompra() {
         return nroCompra;
@@ -19,20 +26,20 @@ public class compra {
         this.nroCompra = nroCompra;
     }
 
-    public int getDocumento() {
-        return documento;
+    public int getProovedorid() {
+        return proovedorid;
     }
 
-    public void setDocumento(int documento) {
-        this.documento = documento;
+    public void setProovedorid(int proovedorid) {
+        this.proovedorid = proovedorid;
     }
 
-    public String getFechaV() {
-        return fechaV;
+    public Date getFechaCompra() {
+        return fechaCompra;
     }
 
-    public void setFechaV(String fechaV) {
-        this.fechaV = fechaV;
+    public void setFechaCompra(Date fechaCompra) {
+        this.fechaCompra = fechaCompra;
     }
 
     public int getCantidad() {
@@ -43,29 +50,13 @@ public class compra {
         this.cantidad = cantidad;
     }
 
-    public int getTotal() {
-        return total;
+    public String getTipodocumento() {
+        return tipodocumento;
     }
 
-    public void setTotal(int total) {
-        this.total = total;
-    }
-
-    public int getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
-    }
-
-    public int getIdProveedor() {
-        return idProveedor;
-    }
-
-    public void setIdProveedor(int idProveedor) {
-        this.idProveedor = idProveedor;
+    public void setTipodocumento(String tipodocumento) {
+        this.tipodocumento = tipodocumento;
     }
     
-    
+ 
 }

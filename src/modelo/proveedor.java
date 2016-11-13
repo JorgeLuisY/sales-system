@@ -4,9 +4,9 @@ package modelo;
 
 public class proveedor {
     private int id_provedor;
-    private String nombreP;
+    private int  ruc;
     private String direccion;
-    private int telefono;
+    private String telefono;
     private String email;
     private int numCuenta1;
     private int numCuenta2;
@@ -14,6 +14,20 @@ public class proveedor {
     private String estado;
     private int celular;
     private int dni;
+
+    public proveedor(int id_provedor, int ruc, String direccion, String telefono, String email, int numCuenta1, int numCuenta2, String observacion, String estado, int celular, int dni) {
+        this.id_provedor = id_provedor;
+        this.ruc = ruc;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.email = email;
+        this.numCuenta1 = numCuenta1;
+        this.numCuenta2 = numCuenta2;
+        this.observacion = observacion;
+        this.estado = estado;
+        this.celular = celular;
+        this.dni = dni;
+    }
 
     public int getId_provedor() {
         return id_provedor;
@@ -23,12 +37,12 @@ public class proveedor {
         this.id_provedor = id_provedor;
     }
 
-    public String getNombreP() {
-        return nombreP;
+    public int getRuc() {
+        return ruc;
     }
 
-    public void setNombreP(String nombreP) {
-        this.nombreP = nombreP;
+    public void setRuc(int ruc) {
+        this.ruc = ruc;
     }
 
     public String getDireccion() {
@@ -39,11 +53,11 @@ public class proveedor {
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -102,6 +116,6 @@ public class proveedor {
     public void setDni(int dni) {
         this.dni = dni;
     }
-    
-    
+
+   
 }
