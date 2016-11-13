@@ -1,14 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package DAO;
 
-/**
- *
- * @author RAMIREZ
- */
-public class UsuarioDAO {
+package DAO;
+import conexion.clsConexion;
+import java.sql.*;
+import java.util.*;
+
+
+
+public class UsuarioDAO extends clsConexion{
+    public UsuarioDAO(){
+        con = new clsConexion().getInstance();
+    }
+  
+    
+
     
 }

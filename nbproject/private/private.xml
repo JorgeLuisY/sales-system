@@ -2,22 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-            <file>file:/F:/sales-system/src/modelo/alamacen.java</file>
-            <file>file:/F:/sales-system/src/modelo/cliente.java</file>
-            <file>file:/F:/sales-system/src/modelo/rol.java</file>
-            <file>file:/F:/sales-system/src/modelo/Usuario.java</file>
-            <file>file:/F:/sales-system/src/modelo/venta.java</file>
-            <file>file:/F:/sales-system/src/modelo/tipobase.java</file>
-            <file>file:/F:/sales-system/src/modelo/compra.java</file>
-            <file>file:/F:/sales-system/src/modelo/proveedor.java</file>
-            <file>file:/F:/sales-system/src/modelo/empleado.java</file>
-            <file>file:/F:/sales-system/src/modelo/producto.java</file>
-            <file>file:/F:/sales-system/src/modelo/tipo_usuario.java</file>
+            <file>file:/F:/sales-system/src/conexion/clsConexion.java</file>
+            <file>file:/F:/sales-system/src/DAO/UsuarioDAO.java</file>
+            <file>file:/F:/sales-system/src/DAO/clienteDAO.java</file>
         </group>
-=======
-        <group/>
->>>>>>> bb2fa35daa66f45b4ef60c1f073e0a276fcc954a
     </open-files>
 </project-private>
