@@ -10,7 +10,7 @@ CREATE TABLE cliente
 	dni                  INTEGER NULL,
 	direccion            VARCHAR(20) NULL,
 	telefono             VARCHAR(12) NULL,
-	observac.            VARCHAR(40) NULL,
+	observac            VARCHAR(40) NULL,
 	PRIMARY KEY (id)
 );
 
