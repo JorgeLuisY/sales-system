@@ -1,18 +1,20 @@
--- Crear y usar la base de datos 
-create database dbventas;
-use dbventas;
+-- DROP DATABASE dbventas;  Elimina la base de datos;
+CREATE DATABASE dbventas;
+USE dbventas;
+
 
 CREATE TABLE cliente
 (
-	id                   BIGINT NOT NULL AUTO_INCREMENT,
+	id                   BIGINT NOT NULL,
 	nombreRZ             VARCHAR(40) NULL,
 	ruc                  NUMERIC(11) NULL,
 	dni                  INTEGER NULL,
 	direccion            VARCHAR(20) NULL,
 	telefono             VARCHAR(12) NULL,
-	observac            VARCHAR(40) NULL,
+	observac             VARCHAR(40) NULL,
 	PRIMARY KEY (id)
 );
+
 
 
 CREATE TABLE venta
@@ -30,7 +32,7 @@ CREATE TABLE venta
 
 CREATE TABLE almacen
 (
-	id                   BIGINT NOT NULL ,
+	id                   BIGINT NOT NULL,
 	estado               VARCHAR(20) NULL,
 	stock                INTEGER NULL,
 	stockmin             INTEGER NULL,
@@ -38,11 +40,12 @@ CREATE TABLE almacen
 );
 
 
+
 CREATE TABLE detalleventa
 (
 	id                   BIGINT NOT NULL,
 	serie                INTEGER NOT NULL,
-	aproductoid          INTEGER NOT NULL,
+	aproductoid          BIGINT NOT NULL,
 	importe              DEC(5,2) NULL,
 	cambio               DECIMAL(5,2) NULL,
 	total                DECIMAL(5) NULL,
@@ -52,9 +55,10 @@ CREATE TABLE detalleventa
 );
 
 
+
 CREATE TABLE producto
 (
-	id                   BIGINT NOT NULL AUTO_INCREMENT,
+	id                   BIGINT NOT NULL,
 	codigoBarra          NUMERIC(15) NULL,
 	nombre               VARCHAR(20) NULL,
 	descipcion           VARCHAR(40) NULL,
@@ -67,9 +71,10 @@ CREATE TABLE producto
 );
 
 
+
 CREATE TABLE proveedor
 (
-	id                   BIGINT NOT NULL AUTO_INCREMENT,
+	id                   BIGINT NOT NULL,
 	nombreProv           VARCHAR(40) NULL,
 	ruc                  NUMERIC(11) NULL,
 	direccion            VARCHAR(60) NULL,
@@ -88,28 +93,30 @@ CREATE TABLE proveedor
 
 CREATE TABLE compra
 (
-	nro.Compra           INTEGER NOT NULL,
+	nroCompra            INTEGER NOT NULL,
 	proovedorid          BIGINT NOT NULL,
 	fechaCompra          TIMESTAMP NULL,
 	cantidad             INTEGER NULL,
 	tipodocumento        VARCHAR(20) NULL,
-	PRIMARY KEY (nro.Compra),
+	PRIMARY KEY (nroCompra),
 	FOREIGN KEY R_15 (proovedorid) REFERENCES proveedor (id)
 );
+
 
 
 CREATE TABLE detallecompra
 (
 	id                   BIGINT NOT NULL,
 	almacenid            BIGINT NOT NULL,
-	nro.Compra           INTEGER NOT NULL,
+	nroCompra            INTEGER NOT NULL,
 	productoid           BIGINT NOT NULL,
 	fechaCompra          TIMESTAMP NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY R_18 (productoid) REFERENCES producto (id),
-	FOREIGN KEY R_19 (nro.Compra) REFERENCES compra (nro.Compra),
+	FOREIGN KEY R_19 (nroCompra) REFERENCES compra (nroCompra),
 	FOREIGN KEY R_20 (almacenid) REFERENCES almacen (id)
 );
+
 
 
 CREATE TABLE tipobase
@@ -125,18 +132,19 @@ CREATE TABLE tipobase
 
 CREATE TABLE usuario
 (
-	id                   BIGINT NOT NULL AUTO_INCREMENT,
+	id                   BIGINT NOT NULL,
 	usuario              VARCHAR(20) NULL,
-	password             VARCHAR(20) NULL,
+	PASSWORD             VARCHAR(20) NULL,
 	fechaInicio          TIMESTAMP NULL,
 	fechaFin             TIMESTAMP NULL,
 	PRIMARY KEY (id)
 );
 
 
+
 CREATE TABLE rol
 (
-	id                   BIGINT NOT NULL AUTO_INCREMENT,
+	id                   BIGINT NOT NULL,
 	rolnombre            VARCHAR(40) NULL,
 	descripcion          VARCHAR(40) NULL,
 	rolvalor             VARCHAR(20) NULL,
@@ -162,7 +170,7 @@ CREATE TABLE tipoUsuario
 
 CREATE TABLE empleado
 (
-	id                   BIGINT NOT NULL AUTO_INCREMENT,
+	id                   BIGINT NOT NULL,
 	tipoUsuarioid        BIGINT NOT NULL,
 	nombre               VARCHAR(30) NULL,
 	apellido             VARCHAR(40) NULL,
