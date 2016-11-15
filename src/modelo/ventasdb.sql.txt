@@ -161,7 +161,7 @@ CREATE TABLE tipoUsuario
 	creadoPor            VARCHAR(20) NULL,
 	fechCrea             TIMESTAMP NULL,
 	descripcion          VARCHAR(40) NULL,
-	PRIMARY KEY (usuarioid),
+	PRIMARY KEY (usuarioid,rolid),
 	FOREIGN KEY R_4 (usuarioid) REFERENCES usuario (id),
 	FOREIGN KEY R_5 (rolid) REFERENCES rol (id)
 );

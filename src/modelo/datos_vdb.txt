@@ -1,0 +1,145 @@
+/* Usuarios Prueba del Sistema */
+
+INSERT INTO usuario VALUES(1,'yapo','yapo',CURDATE(),TIMESTAMP('2020-12-30 03:00:00'));
+INSERT INTO usuario VALUES(2,'admin','admin',CURDATE(),TIMESTAMP('2040-12-31 00:00:00'));
+INSERT INTO usuario VALUES(3,'josue','123456',CURDATE(),TIMESTAMP('2018-12-30 06:00:00'));
+INSERT INTO usuario VALUES(4,'jhonny','bravo',CURDATE(),TIMESTAMP('2018-12-30 06:00:00'));
+INSERT INTO usuario VALUES(5,'henry','123456',CURDATE(),TIMESTAMP('2018-12-30 06:00:00'));
+INSERT INTO usuario VALUES(6,'lea','123456',CURDATE(),TIMESTAMP('2018-12-30 06:00:00'));
+INSERT INTO usuario VALUES(7,'orosco','124586h',CURDATE(),TIMESTAMP('2018-12-30 06:00:00'));
+INSERT INTO usuario VALUES(8,'miguel','f45g8t',CURDATE(),TIMESTAMP('2018-12-30 06:00:00'));
+INSERT INTO usuario VALUES(9,'antonio','1as64asf',CURDATE(),TIMESTAMP('2018-12-30 06:00:00'));
+INSERT INTO usuario VALUES(10,'Rodriguez','Saavedra',CURDATE(),TIMESTAMP('2018-12-30 06:00:00'));
+INSERT INTO usuario VALUES(11,'Marco','25Julio52',CURDATE(),TIMESTAMP('2018-12-30 06:00:00'));
+INSERT INTO usuario VALUES(12,'Brajat','cali254',CURDATE(),TIMESTAMP('2018-12-30 06:00:00'));
+
+/* Roles del Sistema */
+ 
+INSERT INTO rol VALUES(1,'reg.vent.','Registra las Ventas','1','Activo');
+INSERT INTO rol VALUES(2,'reg.comp.','Registra las Compras','1','Activo');
+INSERT INTO rol VALUES(3,'reg.prod.','Registra los Productos','1','Activo');
+INSERT INTO rol VALUES(4,'reg.prov.','Registra las Ventas','1','Activo');
+INSERT INTO rol VALUES(5,'reg.emp.','Registra los Empleados','1','Activo');
+INSERT INTO rol VALUES(6,'reg.clien.','Registra los Clientes','1','Activo');
+INSERT INTO rol VALUES(7,'reg.categ.','Registra las Categorias','1','Activo');
+INSERT INTO rol VALUES(8,'reg.tip.D.','Registra el tipo de Documento','1','Activo');
+INSERT INTO rol VALUES(9,'reg.tip.U.','Registra el tipo de Usuario','1','Activo');
+INSERT INTO rol VALUES(10,'anular.V.','Anula Ventas','1','Activo');
+INSERT INTO rol VALUES(11,'anular.C.','Anula Compra','1','Activo');
+INSERT INTO rol VALUES(12,'inf.Etdo.','Reporta Estados','1','Activo');
+INSERT INTO rol VALUES(13,'inf.V.R.','Reporta Ventas Realizadas','1','Activo');
+INSERT INTO rol VALUES(14,'inf.V.D.','Reporta Ventas Detalladas','1','Activo');
+INSERT INTO rol VALUES(15,'inf.Esdc.','Reporta Estadistica','1','Activo');
+INSERT INTO rol VALUES(16,'inf.C.R.','Reporta las Compras Realizadas','1','Activo');
+INSERT INTO rol VALUES(17,'inf.C.D.','Reporta las Compras Detalladas','1','Activo');
+INSERT INTO rol VALUES(18,'camb.pass.','Actualiza Contraseña','1','Activo');
+INSERT INTO rol VALUES(19,'bkp.DB.','Respalda la Base de Datos','1','Activo');
+INSERT INTO rol VALUES(19,'rrt.DB.','Restaura la Base de Datos','1','Activo');
+INSERT INTO rol VALUES(19,'inf.Caja.','Reporta la Caja','1','Activo');
+
+/* UsuarioRol */
+INSERT INTO tipousuario VALUES(1,1,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,2,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,3,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,4,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,5,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,6,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,7,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,8,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,9,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,10,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,11,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,12,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,13,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,14,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,15,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,16,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,17,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,18,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(1,19,'Analista',NOW(),'Administra el Sistema');
+INSERT INTO tipousuario VALUES(2,5,'Administrador',NOW(),'Registra Empleados');
+INSERT INTO tipousuario VALUES(2,13,'Administrador',NOW(),'Registra Empleados');
+INSERT INTO tipousuario VALUES(2,14,'Administrador',NOW(),'Registra Empleados');
+INSERT INTO tipousuario VALUES(2,16,'Administrador',NOW(),'Registra Empleados');
+INSERT INTO tipousuario VALUES(2,17,'Administrador',NOW(),'Registra Empleados');
+INSERT INTO tipousuario VALUES(3,2,'Registrador',NOW(),'Almacenero');
+INSERT INTO tipousuario VALUES(3,3,'Registrador',NOW(),'Almacenero');
+INSERT INTO tipousuario VALUES(3,7,'Registrador',NOW(),'Almacenero');
+INSERT INTO tipousuario VALUES(3,10,'Registrador',NOW(),'Almacenero');
+INSERT INTO tipousuario VALUES(3,10,'Registrador',NOW(),'Almacenero');
+
+/* Registra Empleado*/ 
+
+INSERT INTO empleado VALUES(1,2,'Josue','Yugra','M',TIMESTAMP('1997-10-10'),'Jr. San Martin',12547896,1234568,845698,NOW(),'josuer@gmail.com',2500.00,'Activo');
+INSERT INTO empleado VALUES(2,3,'Lea','Quilla','F',TIMESTAMP('1996-10-11'),'Jr. Apurimac',1254789,12568456,456213,NOW(),'leaquilla@gmail.com',2500.00,'Activo');
+
+/* Registra Proovedor */
+
+INSERT INTO proveedor VALUES(1,'Faber Castell S.A.','12014785','Sld. Tarapaca Arequipa','98541236','faberCC@gmail.com',123456,123145,NULL,'Activo',12457985,NULL);
+INSERT INTO proveedor VALUES(2,'Coca Cola S.A.','12014785','Jr. Los Gerardos Arequipa',54125988,'cocaCC@gmail.com',211451,123144,NULL,'Activo',12345487,NULL);
+INSERT INTO proveedor VALUES(3,'Nestle S.A.','12014785','Av Raimondi Cuzco',54128956,'NestleCC@gmail.com',568974,123148,NULL,'Activo',658421568,NULL);
+INSERT INTO proveedor VALUES(4,'Gloria S.A.C.','12014785','Jr. Antuela Lima',965871356,'GloriaC@gmail.com',548954,546852,NULL,'Activo',985623461,NULL);
+INSERT INTO proveedor VALUES(5,'Pizza Hut S.A.c.','12014785','Sld. Bernecea Lima',12456358,'HutC@gmail.com',548456,462897,NULL,'Activo',356248795,NULL);
+INSERT INTO proveedor VALUES(6,'Rico Pollo S.A.C.','12014785','Sld. Puno Juliaca',56324512,'RicoPolloC@gmail.com',1254632,548623,NULL,'Activo',9874513656,NULL);
+INSERT INTO proveedor VALUES(7,'San Fernando S.A.','12014785','Sld. Puno Juliaca',52364158,'SanFernandoC@gmail.com',548562,215156,NULL,'Activo',956231465,NULL);
+INSERT INTO proveedor VALUES(8,'Union Salud S.A.','12014785','Psj. Los Milagros Loreto',12456378,'UnionC@gmail.com',587465,548745,NULL,'Activo',598745123,NULL);
+INSERT INTO proveedor VALUES(9,'Las Americas S.A.','12014785','Psj. San Martin Loreto',96512485,'AmeriacanaC@gmail.com',2654845,658245,NULL,'Activo',315426879,NULL);
+INSERT INTO proveedor VALUES(10,'ProSalud S.A.C.','12014785','Sld. Cuzco Cuzco',365214789,'PSaludC@gmail.com',5984562,265478,NULL,'Activo',65481235,NULL);
+
+/* Registra Producto */
+
+INSERT INTO producto VALUES(1,123456,'AB AMBROMOX 500mlgr','Panadol Migraña',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(2,123456,'BRONPAMOX 500mlgr','Jarabe',2.50,3.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(3,123456,'ACARIL 1.2g','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(4,123456,'ACETAK 250mg','Jarabe',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(5,123456,'AFLAMAX 125mg/5mL','Solución Inyectable',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(6,123456,'ALBUMINA 90mg','Polvo para Inhalación',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(7,123456,'ACIDO ALENDRONICO 70mg','Comprimido Recubierto',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(8,123456,'ALETRIZ 10mg','Jarabe',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(9,123456,'ALOPURINOL 100mg','Solución Inyectable',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(10,123456,'DIAZEPAM 10mg/2mL','Polvo para Inhalación',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(11,123456,'DOLODRAN 500mg+25mg','Solución Inyectable',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(12,123456,'TRESIBA 100U/mL','Supositorio',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(13,123456,'TRAMAL 50mg/mL','Gotas',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(14,123456,'MEDLANZ 5mg','Cápsula',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(15,123456,'PROPOFOL 500mlgr','Cápsula',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(16,123456,'PIRAZINAMIDA 10mg/mL','Supositorio',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(17,123456,'ZOLADEX LA 10.8mg','Jarabe',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(18,123456,'MICARDIS 80mg/12.5mg','Granulos para Solución',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(19,123456,'ESPASMOL 10mg+500mg','Comprimido Recubierto',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(20,123456,'DORIXINA 125mg','Cápsula',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(21,123456,'DIMEFOR 850mg','Gotas',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(22,123456,'CODISTAT 60mg/2mL','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(23,123456,'CISPLATINO 50mg/50mL','Granulos para Solución',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(24,123456,'LIBBERA 5mg/mL','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(25,123456,'KYTRIL 1mg/1mL','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(26,123456,'FLAMYDOL 75mg/2mL','Cápsula',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(27,123456,'VOLTAREN 20mg','Jarabe',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(28,123456,'SANAFLU 1mL','Gotas',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(29,123456,'CARBONATO DE LITIO 300mg','Panadol Migraña',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(30,123456,'MIGRAPAC 1mL','Granulos para Solución',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(31,123456,'METROFLAXYL 500mg','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(32,123456,'EZATOR 10mg+20mg','Comprimido Recubierto',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(33,123456,'LINCOMICINA 500mg','Cápsula',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(34,123456,'AMIODARONA 200mg','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(35,123456,'DINEGAL 10mg','Jarabe',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(36,123456,'BIOTONUS 1mg','Comprimido',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(37,123456,'NIOFEN 5mg','Comprimido',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(38,123456,'DIBROLAX 5mg','Suspensión Oral',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(39,123456,'MIGRADOL 250mg+250mg','Comprimido Recubierto',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(40,123456,'VALCOTE 1250mg','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(41,123456,'OTORRINOMICINA 500mg','Suspensión Oral',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(42,123456,'METFORBIOTECH 500mg','Comprimido',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(43,123456,'APROFORTE 550mg','Jarabe',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(44,123456,'LEVOXIDAL 500mg','Comprimido Recubierto',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(45,123456,'DUCLONEX 150mg','Jarabe',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(46,123456,'BACCIDAL 500mg','Suspensión Oral',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(47,123456,'POSIDIN 500mg','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(48,123456,'MEXIFLEX 125mL','Gotas',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(49,123456,'LANZOVAL 100mg','Gotas',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(50,123456,'ALCAINE 1mg/1mL','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
+
+/* Datos Cliente */
+
+INSERT INTO cliente VALUES(1,'Cliente Normal',1236548956,123545698,NULL,456213548,NULL);
+INSERT INTO cliente VALUES(2,'Juan Perez',1548965621,3215612315,NULL,465421651,NULL);
