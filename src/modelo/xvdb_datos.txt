@@ -32,7 +32,7 @@ INSERT INTO rol VALUES(14,'inf.V.D.','Reporta Ventas Detalladas','1','Activo');
 INSERT INTO rol VALUES(15,'inf.Esdc.','Reporta Estadistica','1','Activo');
 INSERT INTO rol VALUES(16,'inf.C.R.','Reporta las Compras Realizadas','1','Activo');
 INSERT INTO rol VALUES(17,'inf.C.D.','Reporta las Compras Detalladas','1','Activo');
-INSERT INTO rol VALUES(18,'camb.pass.','Actualiza Contraseña','1','Activo');
+INSERT INTO rol VALUES(18,'camb.pass.','Actualiza Contraseï¿½a','1','Activo');
 INSERT INTO rol VALUES(19,'bkp.DB.','Respalda la Base de Datos','1','Activo');
 INSERT INTO rol VALUES(19,'rrt.DB.','Restaura la Base de Datos','1','Activo');
 INSERT INTO rol VALUES(19,'inf.Caja.','Reporta la Caja','1','Activo');
@@ -70,8 +70,8 @@ INSERT INTO tipousuario VALUES(3,10,'Registrador',NOW(),'Almacenero');
 
 /* Registra Empleado*/ 
 
-INSERT INTO empleado VALUES(1,2,'Josue','Yugra','M',TIMESTAMP('1997-10-10'),'Jr. San Martin',12547896,1234568,845698,NOW(),'josuer@gmail.com',2500.00,'Activo');
-INSERT INTO empleado VALUES(2,3,'Lea','Quilla','F',TIMESTAMP('1996-10-11'),'Jr. Apurimac',1254789,12568456,456213,NOW(),'leaquilla@gmail.com',2500.00,'Activo');
+INSERT INTO empleado VALUES(1,'Josue','Yugra','M',TIMESTAMP('1997-10-10'),'Jr. San Martin',12547896,1234568,845698,NOW(),'josuer@gmail.com',2500.00,'Activo',2,5);
+INSERT INTO empleado VALUES(2,'Lea','Quilla','F',TIMESTAMP('1996-10-11'),'Jr. Apurimac',1254789,12568456,456213,NOW(),'leaquilla@gmail.com',2500.00,'Activo',3,10);
 
 /* Registra Proovedor */
 
@@ -88,52 +88,52 @@ INSERT INTO proveedor VALUES(10,'ProSalud S.A.C.','12014785','Sld. Cuzco Cuzco',
 
 /* Registra Producto */
 
-INSERT INTO producto VALUES(1,123456,'AB AMBROMOX 500mlgr','Panadol Migraña',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(1,123456,'AB AMBROMOX 500mlgr','Panadol Migraï¿½a',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(2,123456,'BRONPAMOX 500mlgr','Jarabe',2.50,3.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(3,123456,'ACARIL 1.2g','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(4,123456,'ACETAK 250mg','Jarabe',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(5,123456,'AFLAMAX 125mg/5mL','Solución Inyectable',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(6,123456,'ALBUMINA 90mg','Polvo para Inhalación',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(5,123456,'AFLAMAX 125mg/5mL','Soluciï¿½n Inyectable',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(6,123456,'ALBUMINA 90mg','Polvo para Inhalaciï¿½n',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(7,123456,'ACIDO ALENDRONICO 70mg','Comprimido Recubierto',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(8,123456,'ALETRIZ 10mg','Jarabe',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(9,123456,'ALOPURINOL 100mg','Solución Inyectable',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(10,123456,'DIAZEPAM 10mg/2mL','Polvo para Inhalación',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(11,123456,'DOLODRAN 500mg+25mg','Solución Inyectable',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(9,123456,'ALOPURINOL 100mg','Soluciï¿½n Inyectable',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(10,123456,'DIAZEPAM 10mg/2mL','Polvo para Inhalaciï¿½n',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(11,123456,'DOLODRAN 500mg+25mg','Soluciï¿½n Inyectable',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(12,123456,'TRESIBA 100U/mL','Supositorio',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(13,123456,'TRAMAL 50mg/mL','Gotas',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(14,123456,'MEDLANZ 5mg','Cápsula',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(15,123456,'PROPOFOL 500mlgr','Cápsula',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(14,123456,'MEDLANZ 5mg','Cï¿½psula',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(15,123456,'PROPOFOL 500mlgr','Cï¿½psula',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(16,123456,'PIRAZINAMIDA 10mg/mL','Supositorio',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(17,123456,'ZOLADEX LA 10.8mg','Jarabe',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(18,123456,'MICARDIS 80mg/12.5mg','Granulos para Solución',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(18,123456,'MICARDIS 80mg/12.5mg','Granulos para Soluciï¿½n',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(19,123456,'ESPASMOL 10mg+500mg','Comprimido Recubierto',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(20,123456,'DORIXINA 125mg','Cápsula',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(20,123456,'DORIXINA 125mg','Cï¿½psula',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(21,123456,'DIMEFOR 850mg','Gotas',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(22,123456,'CODISTAT 60mg/2mL','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(23,123456,'CISPLATINO 50mg/50mL','Granulos para Solución',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(23,123456,'CISPLATINO 50mg/50mL','Granulos para Soluciï¿½n',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(24,123456,'LIBBERA 5mg/mL','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(25,123456,'KYTRIL 1mg/1mL','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(26,123456,'FLAMYDOL 75mg/2mL','Cápsula',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(26,123456,'FLAMYDOL 75mg/2mL','Cï¿½psula',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(27,123456,'VOLTAREN 20mg','Jarabe',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(28,123456,'SANAFLU 1mL','Gotas',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(29,123456,'CARBONATO DE LITIO 300mg','Panadol Migraña',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(30,123456,'MIGRAPAC 1mL','Granulos para Solución',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(29,123456,'CARBONATO DE LITIO 300mg','Panadol Migraï¿½a',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(30,123456,'MIGRAPAC 1mL','Granulos para Soluciï¿½n',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(31,123456,'METROFLAXYL 500mg','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(32,123456,'EZATOR 10mg+20mg','Comprimido Recubierto',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(33,123456,'LINCOMICINA 500mg','Cápsula',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(33,123456,'LINCOMICINA 500mg','Cï¿½psula',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(34,123456,'AMIODARONA 200mg','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(35,123456,'DINEGAL 10mg','Jarabe',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(36,123456,'BIOTONUS 1mg','Comprimido',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(37,123456,'NIOFEN 5mg','Comprimido',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(38,123456,'DIBROLAX 5mg','Suspensión Oral',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(38,123456,'DIBROLAX 5mg','Suspensiï¿½n Oral',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(39,123456,'MIGRADOL 250mg+250mg','Comprimido Recubierto',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(40,123456,'VALCOTE 1250mg','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(41,123456,'OTORRINOMICINA 500mg','Suspensión Oral',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(41,123456,'OTORRINOMICINA 500mg','Suspensiï¿½n Oral',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(42,123456,'METFORBIOTECH 500mg','Comprimido',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(43,123456,'APROFORTE 550mg','Jarabe',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(44,123456,'LEVOXIDAL 500mg','Comprimido Recubierto',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(45,123456,'DUCLONEX 150mg','Jarabe',1.50,2.00,'Pastollas',NULL,0.50);
-INSERT INTO producto VALUES(46,123456,'BACCIDAL 500mg','Suspensión Oral',1.50,2.00,'Pastollas',NULL,0.50);
+INSERT INTO producto VALUES(46,123456,'BACCIDAL 500mg','Suspensiï¿½n Oral',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(47,123456,'POSIDIN 500mg','Tableta',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(48,123456,'MEXIFLEX 125mL','Gotas',1.50,2.00,'Pastollas',NULL,0.50);
 INSERT INTO producto VALUES(49,123456,'LANZOVAL 100mg','Gotas',1.50,2.00,'Pastollas',NULL,0.50);
