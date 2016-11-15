@@ -171,7 +171,6 @@ CREATE TABLE tipoUsuario
 CREATE TABLE empleado
 (
 	id                   BIGINT NOT NULL,
-	tipoUsuarioid        BIGINT NOT NULL,
 	nombre               VARCHAR(30) NULL,
 	apellido             VARCHAR(40) NULL,
 	sexo                 CHAR(1) NULL,
@@ -184,6 +183,8 @@ CREATE TABLE empleado
 	email                VARCHAR(50) NULL,
 	sueldo               DECIMAL(5,2) NULL,
 	estado               VARCHAR(20) NULL,
+	tipoUsuarioid        BIGINT NOT NULL,
+	rolid                BIGINT NOT NULL,
 	PRIMARY KEY (id),
-	FOREIGN KEY R_6 (tipoUsuarioid) REFERENCES tipoUsuario (usuarioid)
+	FOREIGN KEY R_6 (tipoUsuarioid, rolid) REFERENCES tipoUsuario (usuarioid, rolid)
 );
