@@ -1,14 +1,14 @@
 
 package DAO;
-import conexion.clsConexion;
+import conexion.ConexionDBM;
 import java.sql.*;
 import java.util.*;
 
 
 
-public class UsuarioDAO extends clsConexion{
+public class UsuarioDAO extends ConexionDBM{
     public UsuarioDAO(){
-        con = new clsConexion().getInstance();
+        //con = new ConexionDBM().getInstance();
     }
   
     
