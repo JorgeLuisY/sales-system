@@ -5,18 +5,19 @@ package modelo;
  *
  * @author RAMIREZ
  */
-public class detalleventa {
+public class Detalleventa {
+
     private int id;
     private int serie;
-    private int aproductoid;
+    private int almacenproducto;
     private double importe;
     private double cambio;
     private double total;
 
-    public detalleventa(int id, int serie, int aproductoid, double importe, double cambio, double total) {
+    public Detalleventa(int id, int serie, int almacenproducto, double importe, double cambio, double total) {
         this.id = id;
         this.serie = serie;
-        this.aproductoid = aproductoid;
+        this.almacenproducto = almacenproducto;
         this.importe = importe;
         this.cambio = cambio;
         this.total = total;
@@ -38,12 +39,12 @@ public class detalleventa {
         this.serie = serie;
     }
 
-    public int getAproductoid() {
-        return aproductoid;
+    public int getAlmacenproducto() {
+        return almacenproducto;
     }
 
-    public void setAproductoid(int aproductoid) {
-        this.aproductoid = aproductoid;
+    public void setAlmacenproducto(int almacenproducto) {
+        this.almacenproducto = almacenproducto;
     }
 
     public double getImporte() {
@@ -69,5 +70,5 @@ public class detalleventa {
     public void setTotal(double total) {
         this.total = total;
     }
-    
+   
 }

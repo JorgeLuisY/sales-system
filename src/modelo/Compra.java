@@ -1,21 +1,17 @@
 
 package modelo;
-import java.util.*;
 
-public class compra {
+public class Compra {
     private int nroCompra;
     private int proovedorid;
-    private Date fechaCompra;
     private int cantidad;
     private String tipodocumento;
 
-    public compra(int nroCompra, int proovedorid, int cantidad, String tipodocumento,int agno,int mes,int dia) {
+    public Compra(int nroCompra, int proovedorid, int cantidad, String tipodocumento){
         this.nroCompra = nroCompra;
         this.proovedorid = proovedorid;
         this.cantidad = cantidad;
         this.tipodocumento = tipodocumento;
-        GregorianCalendar calendario=new GregorianCalendar(agno,mes-1,dia);
-        this.fechaCompra=calendario.getTime();
     }
 
     public int getNroCompra() {
@@ -32,14 +28,6 @@ public class compra {
 
     public void setProovedorid(int proovedorid) {
         this.proovedorid = proovedorid;
-    }
-
-    public Date getFechaCompra() {
-        return fechaCompra;
-    }
-
-    public void setFechaCompra(Date fechaCompra) {
-        this.fechaCompra = fechaCompra;
     }
 
     public int getCantidad() {

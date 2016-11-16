@@ -1,7 +1,7 @@
 
 package modelo;
 
-public class producto {
+public class Producto {
     private int id_Producto;
     private int codigoBarra;
     private String nombre;
@@ -12,7 +12,7 @@ public class producto {
     private String codigoAltern;
     private Double utilidad; 
 
-    public producto(int id_Producto, int codigoBarra, String nombre, String descripcion, Double preCosto, Double preVenta, String categoria, Double utilidad) {
+    public Producto(int id_Producto, int codigoBarra, String nombre, String descripcion, Double preCosto, Double preVenta, String categoria, Double utilidad) {
         this.id_Producto = id_Producto;
         this.codigoBarra = codigoBarra;
         this.nombre = nombre;

@@ -2,13 +2,13 @@
 package modelo;
 
 
-public class tipobase {
+public class TipoBase {
     private String tipoCode;
     private String tipoCategoria;
     private String descripcion;
     private String registrador; 
 
-    public tipobase(String tipoCode, String tipoCategoria, String descripcion, String registrador) {
+    public TipoBase(String tipoCode, String tipoCategoria, String descripcion, String registrador) {
         this.tipoCode = tipoCode;
         this.tipoCategoria = tipoCategoria;
         this.descripcion = descripcion;

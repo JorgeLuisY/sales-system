@@ -1,16 +1,16 @@
 
 package modelo;
 
-public class venta {
+public class Venta {
     private int serie;
-    private int clienteid;
+    private int cliente;
     private int nroVenta;
     private int cantidad;
     private String tipodocumento;
 
-    public venta(int serie, int clienteid, int nroVenta, int cantidad, String tipodocumento) {
+    public Venta(int serie, int cliente, int nroVenta, int cantidad, String tipodocumento) {
         this.serie = serie;
-        this.clienteid = clienteid;
+        this.cliente = cliente;
         this.nroVenta = nroVenta;
         this.cantidad = cantidad;
         this.tipodocumento = tipodocumento;
@@ -24,12 +24,12 @@ public class venta {
         this.serie = serie;
     }
 
-    public int getClienteid() {
-        return clienteid;
+    public int getCliente() {
+        return cliente;
     }
 
-    public void setClienteid(int clienteid) {
-        this.clienteid = clienteid;
+    public void setCliente(int clienteid) {
+        this.cliente = clienteid;
     }
 
     public int getNroVenta() {

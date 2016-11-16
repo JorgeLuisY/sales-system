@@ -2,13 +2,13 @@
 package modelo;
 
 
-public class almacen {
+public class Almacen {
     private int id_alamcen;
     private String estado;
     private int stock;
     private int stockmin;
 
-    public almacen(int id_alamcen, String estado, int stock, int stockmin) {
+    public Almacen(int id_alamcen, String estado, int stock, int stockmin) {
         this.id_alamcen = id_alamcen;
         this.estado = estado;
         this.stock = stock;

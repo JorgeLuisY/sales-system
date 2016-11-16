@@ -1,42 +1,42 @@
 
 package modelo;
+import java.sql.Timestamp;
 import java.util.*;
 
-public class empleado {
+public class Empleado {
     private int id_empleado;
     private int  tipoUsuario;
+    private int rol;
     private String nombre;
     private String apellido;
     private char sexo;
-    private Date fechNac;
+    private Date fechNacimiento;
     private String direccion;
     private String telefono;
     private int celular;
     private int dni;
-    private Date fechaIngreso;
     private String email;
     private Double Sueldo;
     private String estado;
 
-    public empleado(int id_empleado, int tipoUsuario, String nombre, String apellido, char sexo,String direccion, String telefono, int celular, int dni,
-            String email, Double Sueldo, String estado,int agno,int mes,int dia) {
-        GregorianCalendar calendario=new GregorianCalendar(agno,mes-1,dia);
-        this.id_empleado = id_empleado;
+    public Empleado(int idEmp,String nombre, String apellido, char sexo,String direccion, String telefono, int celular, int dni,
+            String email,Double Sueldo, String estado,Date fechaNac,int tipoUsuario,int rol) {
+        this.id_empleado = idEmp;
         this.tipoUsuario = tipoUsuario;
+        this.rol = rol;
         this.nombre = nombre;
         this.apellido = apellido;
         this.sexo = sexo;
-        this.fechNac = calendario.getTime();
+        this.fechNacimiento = new Timestamp(fechaNac.getTime());
         this.direccion = direccion;
         this.telefono = telefono;
         this.celular = celular;
         this.dni = dni;
-        this.fechaIngreso = calendario.getTime();
         this.email = email;
         this.Sueldo = Sueldo;
         this.estado = estado;
     }
-
+    
     public int getId_empleado() {
         return id_empleado;
     }
@@ -51,6 +51,14 @@ public class empleado {
 
     public void setTipoUsuario(int tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
+    }
+
+    public int getRol() {
+        return rol;
+    }
+
+    public void setRol(int rol) {
+        this.rol = rol;
     }
 
     public String getNombre() {
@@ -77,12 +85,12 @@ public class empleado {
         this.sexo = sexo;
     }
 
-    public Date getFechNac() {
-        return fechNac;
+    public Date getFechNacimiento() {
+        return fechNacimiento;
     }
 
-    public void setFechNac(Date fechNac) {
-        this.fechNac = fechNac;
+    public void setFechNacimiento(Date fechNacimiento) {
+        this.fechNacimiento = fechNacimiento;
     }
 
     public String getDireccion() {
@@ -117,14 +125,6 @@ public class empleado {
         this.dni = dni;
     }
 
-    public Date getFechaIngreso() {
-        return fechaIngreso;
-    }
-
-    public void setFechaIngreso(Date fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -148,4 +148,5 @@ public class empleado {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
 }

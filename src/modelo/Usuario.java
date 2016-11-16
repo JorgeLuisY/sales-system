@@ -1,24 +1,26 @@
 
 package modelo;
+import java.sql.Timestamp;
 import java.util.*;
 
 
 public class Usuario {
+
     private int id_usuario;
-    private String Usuario;
-    private String Password;
-    private Date FechaInicio;
-    private Date FechaFin;
-
-    public Usuario(int id_usuario, String Usuario, String Password, String fechaFin,int agno,int mes,int dia) {
+    private String usuario;
+    private String password;
+    private Date fechaInicio;
+    private Date fechaFin;
+    
+    public Usuario(){}
+    
+    public Usuario(int id_usuario, String usuario, String password,Date fechaFin) {
         this.id_usuario = id_usuario;
-        this.Usuario = Usuario;
-        this.Password = Password;
-        GregorianCalendar calendario=new GregorianCalendar(agno,mes-1,dia);
-        this.FechaInicio=calendario.getTime();
-        this.FechaFin=calendario.getTime();
+        this.usuario = usuario;
+        this.password = password;
+        this.fechaFin= new Timestamp(fechaFin.getTime());
     }
-
+    
     public int getId_usuario() {
         return id_usuario;
     }
@@ -28,37 +30,33 @@ public class Usuario {
     }
 
     public String getUsuario() {
-        return Usuario;
+        return usuario;
     }
 
-    public void setUsuario(String Usuario) {
-        this.Usuario = Usuario;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
-    public void setPassword(String Password) {
-        this.Password = Password;
-    }
-
-    public Date getFechaInicio() {
-        return FechaInicio;
-    }
-
-    public void setFechaInicio(Date FechaInicio) {
-        this.FechaInicio = FechaInicio;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Date getFechaFin() {
-        return FechaFin;
+        return fechaFin;
     }
 
-    public void setFechaFin(Date FechaFin) {
-        this.FechaFin = FechaFin;
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
-    
-}
-    
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+} 

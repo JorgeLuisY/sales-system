@@ -2,13 +2,14 @@
 package modelo;
 
 
-public class rol {
+public class Rol {
+    private int id_rol ;
     private String rolnombre;
     private String descripcion;
     private String rolvalor;
     private String estado;
 
-    public rol(String rolnombre, String descripcion, String rolvalor, String estado) {
+    public Rol(String rolnombre, String descripcion, String rolvalor, String estado) {
         this.rolnombre = rolnombre;
         this.descripcion = descripcion;
         this.rolvalor = rolvalor;

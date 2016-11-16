@@ -1,20 +1,20 @@
 
 package modelo;
+import java.sql.Timestamp;
 import java.util.*;
 
-public class tipo_usuario {
+public class TipoUsuario {
+
+    
     private int usuario;
     private int rolid;
     private String creadoPor;
-    private Date fechaCrea;
     private String descripcion;
 
-    public tipo_usuario(int usuario, int rolid, String creadoPor, String descripcion,int agno,int mes,int dia) {
+    public TipoUsuario(int usuario, int rolid, String creadoPor, String descripcion) {
         this.usuario = usuario;
         this.rolid = rolid;
         this.creadoPor = creadoPor;
-        GregorianCalendar calendario=new GregorianCalendar(agno,mes-1,dia);
-        this.fechaCrea=calendario.getTime();
     }
 
     public int getUsuario() {
@@ -41,14 +41,6 @@ public class tipo_usuario {
         this.creadoPor = creadoPor;
     }
 
-    public Date getFechaCrea() {
-        return fechaCrea;
-    }
-
-    public void setFechaCrea(Date fechaCrea) {
-        this.fechaCrea = fechaCrea;
-    }
-
     public String getDescripcion() {
         return descripcion;
     }
@@ -56,5 +48,4 @@ public class tipo_usuario {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
 }

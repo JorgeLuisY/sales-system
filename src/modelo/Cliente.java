@@ -1,23 +1,24 @@
 
 package modelo;
 
-public class cliente {
+public class Cliente {
+
     private int id_cliente;
-    private String nombre;
+    private String nombreoRazonS;
     private int ruc;
     private int dni;
     private String direccion;
     private String telefono;
-    private String observaciones;
+    private String observacion;
 
-    public cliente(int id_cliente, String nombre, int ruc, int dni, String direccion, String telefono, String observaciones) {
+    public Cliente(int id_cliente, String nombre, int ruc, int dni, String direccion, String telefono, String observaciones) {
         this.id_cliente = id_cliente;
-        this.nombre = nombre;
+        this.nombreoRazonS = nombre;
         this.ruc = ruc;
         this.dni = dni;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.observaciones = observaciones;
+        this.observacion = observaciones;
     }
 
     public int getId_cliente() {
@@ -28,12 +29,12 @@ public class cliente {
         this.id_cliente = id_cliente;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreoRazonS() {
+        return nombreoRazonS;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreoRazonS(String nombreoRazonS) {
+        this.nombreoRazonS = nombreoRazonS;
     }
 
     public int getRuc() {
@@ -68,12 +69,11 @@ public class cliente {
         this.telefono = telefono;
     }
 
-    public String getObservaciones() {
-        return observaciones;
+    public String getObservacion() {
+        return observacion;
     }
 
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
     }
-    
 }

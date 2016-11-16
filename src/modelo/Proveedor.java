@@ -2,8 +2,10 @@
 package modelo;
 
 
-public class proveedor {
+public class Proveedor {
+
     private int id_provedor;
+    private String nombreProvedor;
     private int  ruc;
     private String direccion;
     private String telefono;
@@ -15,7 +17,7 @@ public class proveedor {
     private int celular;
     private int dni;
 
-    public proveedor(int id_provedor, int ruc, String direccion, String telefono, String email, int numCuenta1, int numCuenta2, String observacion, String estado, int celular, int dni) {
+    public Proveedor(int id_provedor,String nombreProvedor, int ruc, String direccion, String telefono, String email, int numCuenta1, int numCuenta2, String observacion, String estado, int celular, int dni) {
         this.id_provedor = id_provedor;
         this.ruc = ruc;
         this.direccion = direccion;
@@ -35,6 +37,14 @@ public class proveedor {
 
     public void setId_provedor(int id_provedor) {
         this.id_provedor = id_provedor;
+    }
+
+    public String getNombreProvedor() {
+        return nombreProvedor;
+    }
+
+    public void setNombreProvedor(String nombreProvedor) {
+        this.nombreProvedor = nombreProvedor;
     }
 
     public int getRuc() {
@@ -115,7 +125,5 @@ public class proveedor {
 
     public void setDni(int dni) {
         this.dni = dni;
-    }
-
-   
+    }   
 }

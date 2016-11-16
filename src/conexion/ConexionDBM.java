@@ -10,7 +10,7 @@ public class ConexionDBM {
     private String driver = "com.mysql.jdbc.Driver";
     private String myBD = "jdbc:mysql://localhost:3306/dbventas";
     private String usuario = "root";
-    private String passw = "root";//Cambie la contraseña por defecto algunos no tienen o estan con root
+    private String passw = "";//Cambie la contraseña por defecto algunos no tienen o estan con root
     
     public ConexionDBM(){
         try{
@@ -31,11 +31,11 @@ public class ConexionDBM {
         return con;
     }
     
-    /* // Metodo para probar la conexxion 
+    /* // Metodo para probar la conexxion */
     public static void main(String[] args) {
        ConexionDBM nuevaconec = new ConexionDBM();
        
        Connection imprimir = nuevaconec.getInstance();
         System.out.println("La conexiuon fue Existosa "+ imprimir);
-    } */
+    } 
 }
