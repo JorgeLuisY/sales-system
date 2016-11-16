@@ -5,8 +5,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ConexionDBM {
-    private Connection con=null;
-    private ResultSet rs=null;
+    public Connection con=null;
+    public ResultSet rs=null;
     private String driver = "com.mysql.jdbc.Driver";
     private String myBD = "jdbc:mysql://localhost:3306/dbventas";
     private String usuario = "root";

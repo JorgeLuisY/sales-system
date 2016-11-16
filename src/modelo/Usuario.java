@@ -58,5 +58,7 @@ public class Usuario {
     public void setFechaFin(Date FechaFin) {
         this.FechaFin = FechaFin;
     }
+
+    
 }
     
