@@ -31,11 +31,11 @@ public class ConexionDBM {
         return con;
     }
     
-    /* // Metodo para probar la conexxion */
+    /* // Metodo para probar la conexxion 
     public static void main(String[] args) {
        ConexionDBM nuevaconec = new ConexionDBM();
        
        Connection imprimir = nuevaconec.getInstance();
         System.out.println("La conexiuon fue Existosa "+ imprimir);
-    } 
+    } */
 }

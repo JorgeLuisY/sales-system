@@ -7,6 +7,7 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Usuario;
 
 public class VistaUser extends javax.swing.JFrame {
+    // 
     UsuarioDAO controladores = new UsuarioDAO();
     ArrayList<Usuario>usuario;
     
@@ -63,10 +64,10 @@ public void LimpiarFormulario(){
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 957, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -75,7 +76,7 @@ public void LimpiarFormulario(){
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(39, 39, 39)
                 .addComponent(btnListar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

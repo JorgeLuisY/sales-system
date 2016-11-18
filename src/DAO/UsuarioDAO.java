@@ -6,24 +6,27 @@ import java.util.*;
 import modelo.Usuario;
 
 public class UsuarioDAO extends ConexionDBM{
+    // Variables
+        private ArrayList<Usuario> lista=new ArrayList<Usuario>();
+        
+    
+// Metodos
     public UsuarioDAO(){
         con = new ConexionDBM().getInstance();
     }
-  
+    
+    
     public ArrayList<Usuario> reportaUsuario(){
-        ArrayList<Usuario> lista=new ArrayList<Usuario>();
-        con=new ConexionDBM().getInstance();
-        Usuario usuario= new Usuario();
-        
+        con = new ConexionDBM().getInstance();
         try {
-            rs=con.prepareStatement("select * from usuario ").executeQuery();
-            System.out.println("Probar:" +rs.getRow());
+            rs=con.prepareStatement("SELECT * FROM usuario").executeQuery();
             while(rs.next()){
+                Usuario usuario= new Usuario();// Esto crea una nueva variable cada ves que itera no lo mueva
                 usuario.setId_usuario(rs.getInt("id"));
                 usuario.setUsuario(rs.getString("usuario"));                
                 usuario.setPassword(rs.getString("password"));
-                usuario.setFechaInicio(rs.getDate("fechaInicio"));
-                usuario.setFechaFin(rs.getDate("FechaFin"));
+                usuario.setFechaInicio(rs.getTimestamp("fechaInicio"));
+                usuario.setFechaFin(rs.getTimestamp("FechaFin"));
                 lista.add(usuario);
             }
         } catch (Exception ex) {
@@ -82,7 +85,7 @@ public class UsuarioDAO extends ConexionDBM{
         } 
         return i;
     }
-
+*/
     
 }
 /* PASAR A LA LOGICA DEL NOEGICIO
@@ -101,4 +104,4 @@ public class UsuarioDAO extends ConexionDBM{
             }
         } catch (Exception e) {}        
         return to;
-    }*/
+    }

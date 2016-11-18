@@ -9,16 +9,17 @@ public class Usuario {
     private int id_usuario;
     private String usuario;
     private String password;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private Timestamp fechaInicio;
+    private Timestamp fechaFin;
     
     public Usuario(){}
     
-    public Usuario(int id_usuario, String usuario, String password,Date fechaFin) {
+    public Usuario(int id_usuario, String usuario, String password,Timestamp fechaFin) {
         this.id_usuario = id_usuario;
         this.usuario = usuario;
         this.password = password;
-        this.fechaFin= new Timestamp(fechaFin.getTime());
+        this.fechaFin= fechaFin;
+        // this.fechaFin= new Timestamp(fechaFin.getTime());
     }
     
     public int getId_usuario() {
@@ -45,18 +46,18 @@ public class Usuario {
         this.password = password;
     }
 
-    public Date getFechaFin() {
+    public Timestamp getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(Timestamp fechaFin) {
         this.fechaFin = fechaFin;
     }
-    public Date getFechaInicio() {
+    public Timestamp getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(Timestamp fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 } 
