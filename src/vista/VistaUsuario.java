@@ -8,7 +8,7 @@ import modelo.Usuario;
 import fechasv.FechasV;
 import java.sql.Timestamp;
 
-public class vistaUsuario extends javax.swing.JFrame {
+public class VistaUsuario extends javax.swing.JFrame {
     // Variables
     UsuarioDAO controladores = new UsuarioDAO();
     ArrayList<Usuario> usuario;
@@ -16,7 +16,7 @@ public class vistaUsuario extends javax.swing.JFrame {
     String fechamodificada;
     
     
-    public vistaUsuario() {
+    public VistaUsuario() {
         initComponents();
         FechaIni.setText(" "+fechaactualidad);
         FechaIni.disable();
@@ -316,20 +316,21 @@ public void LimpiarFormulario() {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new vistaUsuario().setVisible(true);
+                new VistaUsuario().setVisible(true);
             }
         });
     }

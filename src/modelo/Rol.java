@@ -3,6 +3,7 @@ package modelo;
 
 
 public class Rol {
+
     private int id_rol ;
     private String rolnombre;
     private String descripcion;
@@ -14,6 +15,16 @@ public class Rol {
         this.descripcion = descripcion;
         this.rolvalor = rolvalor;
         this.estado = estado;
+    }
+    
+    public Rol(){}
+
+        public int getId_rol() {
+        return id_rol;
+    }
+
+    public void setId_rol(int id_rol) {
+        this.id_rol = id_rol;
     }
 
     public String getRolnombre() {

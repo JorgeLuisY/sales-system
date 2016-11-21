@@ -7,7 +7,7 @@ import modelo.Usuario;
 
 public class UsuarioDAO extends ConexionDBM{
     // Variables
-        private ArrayList<Usuario> lista=new ArrayList<Usuario>();
+    private ArrayList<Usuario> lista=new ArrayList<Usuario>();
         
     
 // Metodos
