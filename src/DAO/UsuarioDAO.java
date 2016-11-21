@@ -19,7 +19,7 @@ public class UsuarioDAO extends ConexionDBM{
     public ArrayList<Usuario> reportaUsuario(){
         con = new ConexionDBM().getInstance();
         try {
-            rs=con.prepareStatement("SELECT * FROM usuario").executeQuery();
+            rs=con.prepareStatement("SELECT * FROM usuario order by 1").executeQuery();
             while(rs.next()){
                 Usuario usuario= new Usuario();// Esto crea una nueva variable cada ves que itera no lo mueva
                 usuario.setId_usuario(rs.getInt("id"));
@@ -45,13 +45,14 @@ public class UsuarioDAO extends ConexionDBM{
                 iuser.setInt(++i, usuario.getId_usuario());            
                 iuser.setString(++i, usuario.getUsuario());              
                 iuser.setString(++i, usuario.getPassword());  
-            //    iuser.setDate(++i, usuario.getFechaInicio(date.getTime()));
-            //    iuser.setDate(++i, usuario.getFechaFin(date.getTime()));
+                iuser.setTimestamp(++i, usuario.getFechaInicio());
+                iuser.setTimestamp(++i, usuario.getFechaFin());
                 iuser.executeUpdate();     
                 iuser.close();
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
             System.out.println("Error en Insertar");
+            System.out.println(ex.getMessage());
+            
         }        
     }
     
@@ -85,7 +86,7 @@ public class UsuarioDAO extends ConexionDBM{
         } 
         return i;
     }
-*/
+
     
 }
 /* PASAR A LA LOGICA DEL NOEGICIO
@@ -104,4 +105,4 @@ public class UsuarioDAO extends ConexionDBM{
             }
         } catch (Exception e) {}        
         return to;
-    }
+    }*/
