@@ -12,6 +12,8 @@ public class Producto {
     private String codigoAltern;
     private Double utilidad; 
 
+    public Producto(){}
+    
     public Producto(int id_Producto, int codigoBarra, String nombre, String descripcion, Double preCosto, Double preVenta, String categoria, Double utilidad) {
         this.id_Producto = id_Producto;
         this.codigoBarra = codigoBarra;
