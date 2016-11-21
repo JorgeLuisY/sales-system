@@ -258,11 +258,9 @@ public void LimpiarFormulario() {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        Usuario userd = new Usuario ();
-        userd.setId_usuario(Integer.parseInt(iduser.getText()));
         if (!"".equals(iduser.getText()) ){
+            controladores.eliminarUsuario(Integer.parseInt(iduser.getText()));
             JOptionPane.showMessageDialog(this, " Datos Eliminado Correctamente ","",JOptionPane.INFORMATION_MESSAGE);
-            controladores.eliminarUsuario(userd.getId_usuario());
             LimpiarFormulario();
             ListarDatos();
 
@@ -272,19 +270,19 @@ public void LimpiarFormulario() {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        /*Usuario mP = new Usuario();
-        mP.setId_usuario(Integer.parseInt(iduser.getText()));
-        mP.setUsuario(usuario.getText());
-        mP.setPassword(pass.getText());
-        /*if (!"".equals(TxtId.getText()) && !"".equals(TxtCodigo.getText()) && !"".equals(TxtId.getText()) ){
+        Usuario userm = new Usuario();
+        userm.setId_usuario(Integer.parseInt(iduser.getText()));
+        userm.setUsuario(login.getText());
+        userm.setPassword(pass.getText());
+        userm.setFechaFin(Timestamp.valueOf(getfecham()));
+        if (!"".equals(iduser.getText()) && !"".equals(login.getText()) && !"".equals(pass.getText()) && !"".equals(FechaFin.getText()) ){
+            controladores.actualizarUsuario(userm);
             JOptionPane.showMessageDialog(this, " Datos Actualizados Correctamente ","",JOptionPane.INFORMATION_MESSAGE);
-            controladores.modificarProducto(mP);
             LimpiarFormulario();
             ListarDatos();
-
         }else{
             JOptionPane.showMessageDialog(this, " Falta Rellenar Datos","",JOptionPane.INFORMATION_MESSAGE);
-        }*/
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void iduserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iduserActionPerformed

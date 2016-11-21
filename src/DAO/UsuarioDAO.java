@@ -59,30 +59,31 @@ public class UsuarioDAO extends ConexionDBM{
     public void actualizarUsuario(Usuario usuario){
         int i=0;
         try {
-                PreparedStatement auser=con.prepareStatement(" UPDATE usuario SET usuario=?, password=? WHERE id=?; ");                          
+                PreparedStatement auser=con.prepareStatement(" UPDATE usuario SET usuario=?, password=?, fechaFin=? WHERE id=?; ");                          
                 auser.setString(++i, usuario.getUsuario());                
-                auser.setString(++i, usuario.getPassword());  
+                auser.setString(++i, usuario.getPassword()); 
+                auser.setTimestamp(++i, usuario.getFechaFin());
                 auser.setInt(++i, usuario.getId_usuario());  
                 auser.executeUpdate();  
                 auser.close();
            
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
             System.out.println("Error en Actualizar Intente de nuevo");
+            System.out.println(ex.getMessage());
         }         
     }
     
     public int eliminarUsuario(int id){
         int i=0;
         try {
-                PreparedStatement euser=con.prepareStatement(" DELETE FROM persona WHERE id=?  ");
+                PreparedStatement euser=con.prepareStatement(" DELETE FROM usuario WHERE id=?  ");
                 euser.setInt(++i, id);  
                 i = euser.executeUpdate();
                 euser.close();
            
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
             System.out.println("Error en Eliminar");
+            System.out.println(ex.getMessage());
         } 
         return i;
     }
