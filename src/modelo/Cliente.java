@@ -2,6 +2,7 @@
 package modelo;
 
 public class Cliente {
+    
 
     private int id_cliente;
     private String nombreoRazonS;
@@ -10,6 +11,8 @@ public class Cliente {
     private String direccion;
     private String telefono;
     private String observacion;
+    
+    public Cliente(){}
 
     public Cliente(int id_cliente, String nombre, int ruc, int dni, String direccion, String telefono, String observaciones) {
         this.id_cliente = id_cliente;
@@ -19,7 +22,9 @@ public class Cliente {
         this.direccion = direccion;
         this.telefono = telefono;
         this.observacion = observaciones;
+        
     }
+    
 
     public int getId_cliente() {
         return id_cliente;
