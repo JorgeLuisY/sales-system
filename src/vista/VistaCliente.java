@@ -1,6 +1,6 @@
 package vista;
 
-import DAO.clienteDAO;
+import DAO.ClienteDAO;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -8,7 +8,7 @@ import modelo.Cliente;
 
 public class VistaCliente extends javax.swing.JFrame {
     // Variables
-    clienteDAO controladores = new clienteDAO();
+    ClienteDAO controladores = new ClienteDAO();
     ArrayList<Cliente> cliente;
     
     public VistaCliente() {
