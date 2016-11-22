@@ -33,27 +33,7 @@ public class clienteDAO extends ConexionDBM{
         }        
         return listas;
     }
-   /* public Cliente buscarCliente(Cliente clien){
-        int i=0;               
-        try {
-             PreparedStatement iclien=con.prepareStatement(" BUSCAR INTO "
-                    + " clien "
-                    + " VALUES(?, ?, ?, ?, ?); ");
-                iclien.setInt(++i, clien.getId_cliente());            
-                iclien.setString(++i, clien.getNombreoRazonS());
-                iclien.setInt(++i, clien.getRuc());
-                iclien.setInt(++i, clien.getDni());  
-                iclien.setString(++i, clien.getDireccion());
-                iclien.setString(++i, clien.getTelefono());
-                iclien.setString(++i, clien.getObservacion());
-                iclien.executeUpdate();     
-                iclien.close();
-            }
-         catch (SQLException ex) {        
-        System.out.println("Error en buscar");
-            System.out.println(ex.getMessage());
-    }*/
-    
+   
     public void insertarCliente(Cliente clien){
         int i=0;
         try {

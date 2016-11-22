@@ -6,6 +6,8 @@ public class Compra {
     private int proovedorid;
     private int cantidad;
     private String tipodocumento;
+    
+    public Compra(){}
 
     public Compra(int nroCompra, int proovedorid, int cantidad, String tipodocumento){
         this.nroCompra = nroCompra;

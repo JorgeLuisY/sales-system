@@ -4,85 +4,67 @@ import conexion.ConexionDBM;
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
-import modelo.compra;
+import modelo.Compra;
 public class compraDAO extends ConexionDBM {
-     public compraDAO () {
-        con=new ConexionDBM().getInstance();
+     private ArrayList<Compra> lista=new ArrayList<Compra>();
+    public compraDAO(){
+        con = new ConexionDBM().getInstance();
     }
    
     
-    public ArrayList<compra> reportarCompra(){
-        compra to=null;
-        ArrayList<compra> lista=new ArrayList<compra>();
+    public ArrayList<Compra> reportarCompra(){
         con=new ConexionDBM().getInstance();
         
         try {
-            rs=con.prepareStatement("select * from persona ").executeQuery();
-            System.out.println("Probar:" +rs.getRow());
+            rs=con.prepareStatement("select * from compra ").executeQuery();
+            
             while(rs.next()){
-                //to=new compra(nroCompra, proovedorid, cantidad, null, agno, mes, dia);
-                to.setNroCompra(rs.getInt("Compra"));
-                to.setProovedorid(rs.getInt("Proovedorid"));
-                to.setFechaCompra(rs.getDate("FechaCompra"));
-                to.setCantidad(rs.getInt("Cantidad")); 
-                to.setTipodocumento(rs.getString("Tipodocumento"));
-                lista.add(to);
+                Compra compra = new Compra();
+                compra.setNroCompra(rs.getInt("Compra"));
+                compra.setProovedorid(rs.getInt("Proovedorid"));
+                compra.setCantidad(rs.getInt("Cantidad")); 
+                compra.setTipodocumento(rs.getString("Tipodocumento"));
+                lista.add(compra);
                 //System.out.println("OJO"+lista.size());
             }
         } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Error en Listado");
         }        
         return lista;
     }
-    public compra buscarCompra(int id){
-        compra to=null;               
-        try {
-            rs=con.prepareStatement("select * from "
-                    + " persona where id="+id+" ")
-                    .executeQuery();            
-            if(rs.next()){
-            to=new compra(id, id, id, null, id, id, id);
-            to.setNroCompra(rs.getInt("NroCompra"));
-            to.setCantidad(rs.getInt("Cantidad"));
-            to.setProovedorid(rs.getInt("Proovedorid"));                
-            to.setFechaCompra(rs.getDate("FechaCompra"));
-            
-            to.setTipodocumento(rs.getString("Tipodocumento"));
-            }
-        } catch (Exception e) {}        
-        return to;
-    }
     
-    public void insertarCompra(compra to){
+    public void insertarCompra(Compra compra){
         int i=0;
         try {
-            PreparedStatement ps=con.prepareStatement(" INSERT INTO "
+            PreparedStatement ipcompra=con.prepareStatement(" INSERT INTO "
                     + " persona(id, nombres, apellidos)"
                     + " VALUES(?, ?, ?); ");
-            
-                ps.setInt(++i, to.getNroCompra());
-                ps.setInt(++i, to.getCantidad()); 
-                ps.setInt(++i, to.getProovedorid());
-                //ps.setDate(++i, to.getFechaCompra()); 
-                 ps.setString(++i, to.getTipodocumento());
+                ipcompra.setInt(++i, compra.getNroCompra());            
+                ipcompra.setInt(++i, compra.getProovedorid());              
+                ipcompra.setInt(++i, compra.getCantidad());  
+                ipcompra.setString(++i, compra.getTipodocumento());
                 
-                ps.execute();     
+              
            
-        } catch (Exception e) {
+        } catch (SQLException ex) {
+            System.out.println("Error en Insertar");
+            System.out.println(ex.getMessage());
         }        
     }
     
-    public void actualizarCompra(compra to){
+    public void actualizarCompra(Compra compra){
         int i=0;
         try {
-                PreparedStatement ps=con.prepareStatement(" UPDATE persona SET nombres=?, apellidos=? WHERE id=?; ");                          
-                ps.setInt(++i, to.getNroCompra());                
-                ps.setInt(++i, to.getCantidad());  
-                ps.setInt(++i, to.getProovedorid());
-                //ps.setDate(++i, to.getFechaCompra());
-                ps.setString(++i, to.getTipodocumento());
-                ps.executeUpdate();     
+                PreparedStatement apcompra=con.prepareStatement(" UPDATE persona SET nombres=?, apellidos=? WHERE id=?; ");                          
+                apcompra.setInt(++i, compra.getNroCompra());            
+                apcompra.setInt(++i, compra.getProovedorid());              
+                apcompra.setInt(++i, compra.getCantidad());  
+                apcompra.setString(++i, compra.getTipodocumento());    
            
         } catch (Exception e) {
+            System.out.println("Error en Actualizar Intente de nuevo");
+            System.out.println(e.getMessage());
         }         
     }
     
@@ -90,7 +72,7 @@ public class compraDAO extends ConexionDBM {
     public int eliminarCompra(int id){
         int i=0;
         try {
-                PreparedStatement ps=con.prepareStatement(" DELETE FROM persona WHERE id=?  ");
+                PreparedStatement ps=con.prepareStatement(" DELETE FROM compra WHERE id=?  ");
                 ps.setInt(++i, id);  
                i= ps.executeUpdate();     
            
