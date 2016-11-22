@@ -85,7 +85,7 @@ public class ProductoDAO extends ConexionDBM {
         }         
     }
     
-    public int eliminarUsuario(int id){
+    public int eliminarProducto(int id){
         int i=0;
         try {
                 PreparedStatement eproduct=con.prepareStatement(" DELETE FROM producto WHERE id=?  ");
