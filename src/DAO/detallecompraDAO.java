@@ -3,84 +3,78 @@ package DAO;
 import conexion.ConexionDBM;
 import java.sql.*;
 import java.util.*;
-import java.util.Date;
-import modelo.detallecompra;
+import modelo.DetalleCompra;
 
 public class detallecompraDAO extends ConexionDBM{
+    private ArrayList<DetalleCompra> lista=new ArrayList<DetalleCompra>();
+    
     public detallecompraDAO() {
         con=new ConexionDBM().getInstance();
     }
    
     
-    public ArrayList<detallecompra> reportarDetalleCompra(){
-        detallecompra to=null;
-        ArrayList<detallecompra> lista=new ArrayList<detallecompra>();
+    public ArrayList<DetalleCompra> reportarDetalleCompra(){
+        
         con=new ConexionDBM().getInstance();
         
         try {
             rs=con.prepareStatement("select * from persona ").executeQuery();
-            System.out.println("Probar:" +rs.getRow());
+            
             while(rs.next()){
-                //to=new detallecompra(almacenid, nroCompra, productoid, agno, mes, dia)pra();
-                to.setAlmacenid(rs.getInt("Almacenid"));
-                to.setNroCompra(rs.getInt("NroCompra"));                
-                to.setProductoid(rs.getInt("Productoid"));
-                to.setFechaCompra(rs.getDate("FechaCompra"));
-                lista.add(to);
-                //System.out.println("OJO"+lista.size());
+                DetalleCompra compra = new DetalleCompra();
+                compra.setId_d_c(rs.getInt("id"));
+                compra.setAlmacen(rs.getInt("almacen"));
+                compra.setNroCompra(rs.getInt("compra"));
+                compra.setProducto(rs.getInt("producto"));
+                compra.setFechaCompra(rs.getTimestamp("fechaCompra"));
+                lista.add(compra);
             }
         } catch (Exception e) {
+            System.out.println("Error en Listado"); 
+            System.out.println(e.getMessage());
         }        
         return lista;
     }
-    public detallecompra buscarDetalleCompra(int id){
-        detallecompra to=null;               
-        try {
-            rs=con.prepareStatement("select * from "
-                    + " persona where id="+id+" ")
-                    .executeQuery();            
-            if(rs.next()){
-            to=new detallecompra(id, id, id, id, id, id);
-            to.setAlmacenid(rs.getInt("Almacenid"));
-            to.setNroCompra(rs.getInt("NroCompra"));                
-            to.setProductoid(rs.getInt("Productoid"));  
-            to.setFechaCompra(rs.getDate("FechaCompra"));
-            }
-        } catch (Exception e) {}        
-        return to;
-    }
-    
-    public void insertarDetalleCompra(detallecompra to){
+
+    public void insertarDetalleCompra(DetalleCompra compra){
         int i=0;
         try {
-            PreparedStatement ps=con.prepareStatement(" INSERT INTO "
+            PreparedStatement icompra=con.prepareStatement(" INSERT INTO "
                     + " persona(id, nombres, apellidos)"
                     + " VALUES(?, ?, ?); ");
-                ps.setInt(++i, to.getAlmacenid());            
-                ps.setInt(++i, to.getNroCompra());  
-                ps.setInt(++i, to.getProductoid());
-                //ps.setDate(++i, to.getFechaCompra());                          
-                ps.execute();     
+                icompra.setInt(++i, compra.getId_d_c());
+                icompra.setInt(++i, compra.getAlmacen());
+                icompra.setInt(++i, compra.getNroCompra());
+                icompra.setInt(++i, compra.getProducto());
+                icompra.setTimestamp(++i,compra.getFechaCompra());
+                icompra.executeUpdate();     
+                icompra.close();
+
            
         } catch (Exception e) {
+            System.out.println("Error en Insertar");
+            System.out.println(e.getMessage());
         }        
     }
     
-    public void actualizarDetalleCompra(detallecompra to){
+    public void actualizarDetalleCompra(DetalleCompra compra){
         int i=0;
         try {
-                PreparedStatement ps=con.prepareStatement(" UPDATE persona SET nombres=?, apellidos=? WHERE id=?; ");                          
-                ps.setInt(++i, to.getAlmacenid());                
-                ps.setInt(++i, to.getNroCompra());  
-                ps.setInt(++i, to.getProductoid()); 
-                //ps.setDate(++i, to.getFechaCompra());
-                ps.executeUpdate();     
+                PreparedStatement Dcompra=con.prepareStatement(" UPDATE persona SET nombres=?, apellidos=? WHERE id=?; "); 
+                Dcompra.setInt(++i, compra.getId_d_c());
+                Dcompra.setInt(++i, compra.getAlmacen());
+                Dcompra.setInt(++i, compra.getNroCompra());
+                Dcompra.setInt(++i, compra.getProducto());
+                Dcompra.setTimestamp(++i,compra.getFechaCompra());
+                Dcompra.executeUpdate();  
+                Dcompra.close();  
            
         } catch (Exception e) {
+            System.out.println("Error en Actualizar Intente de nuevo");
+            System.out.println(e.getMessage());
         }         
     }
-    
-    
+
     public int eliminarDetalleCompra(int id){
         int i=0;
         try {
@@ -89,6 +83,8 @@ public class detallecompraDAO extends ConexionDBM{
                i= ps.executeUpdate();     
            
         } catch (Exception e) {
+            System.out.println("Error en Eliminar");
+            System.out.println(e.getMessage());
         } 
         return i;
     }

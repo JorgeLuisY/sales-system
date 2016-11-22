@@ -4,15 +4,16 @@ import java.sql.Timestamp;
 import java.util.*;
 
 public class DetalleCompra {
+    public DetalleCompra(){}
 
-    public void setFechaCompra(Date fechaCompra) {
+    public void setFechaCompra(Timestamp fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
     private int id_d_c;
     private int  almacen;
     private int nroCompra;
     private int producto;
-    private Date fechaCompra;
+    private Timestamp fechaCompra;
 
     public DetalleCompra(int iadc,int almacenid, int nroCompra, int producto,Date fechaCompra) {
         id_d_c = iadc;
@@ -54,7 +55,7 @@ public class DetalleCompra {
         this.producto = producto;
     }
 
-    public Date getFechaCompra() {
+    public Timestamp getFechaCompra() {
         return fechaCompra;
     }
 
