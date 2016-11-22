@@ -292,15 +292,16 @@ public void LimpiarFormulario() {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        Cliente rolm = new Cliente();
-        rolm.setId_cliente(Integer.parseInt(idcliente.getText()));
-        rolm.setNombreoRazonS(nombreclien.getText());
-        rolm.setRuc(Integer.parseInt(ruc.getText()));
-        rolm.setDni(Integer.parseInt(dni.getText()));
-        rolm.setRolvalor(dni.getText());
-        rolm.setEstado(direccion.getText());
-        if (!"".equals(idcliente.getText()) && !"".equnombreclienerol.getText()) && !"".equals(ruc.getText()) && !"".equals(direccion.getText()) ){
-            controladores.actualizarRol(rolm);
+        Cliente client = new Cliente();
+        client.setId_cliente(Integer.parseInt(idcliente.getText()));
+        client.setNombreoRazonS(nombreclien.getText());
+        client.setRuc(Integer.parseInt(ruc.getText()));
+        client.setDni(Integer.parseInt(dni.getText()));
+        client.setDireccion(direccion.getText());
+        client.setTelefono(telefono.getText());
+        client.setObservacion(observacion.getText());
+        if (!"".equals(idcliente.getText()) && !"".equals(nombreclien.getText()) && !"".equals(ruc.getText())&&!"".equals(dni.getText()) && !"".equals(direccion.getText())&& !"".equals(telefono.getText()) && !"".equals(observacion.getText()) ){
+            controladores.actualizarCliente(client);
             JOptionPane.showMessageDialog(this, " Datos Actualizados Correctamente ","",JOptionPane.INFORMATION_MESSAGE);
             LimpiarFormulario();
             ListarDatos();
