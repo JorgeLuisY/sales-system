@@ -193,6 +193,11 @@ public void LimpiarFormulario(){
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -285,7 +290,6 @@ public void LimpiarFormulario(){
                             .addComponent(TxtPV, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -332,8 +336,15 @@ public void LimpiarFormulario(){
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
       Producto iP = new Producto();
       iP.setId_Producto(Integer.parseInt(TxtId.getText()));
-      iP.setCodigoBarra(Integer.parseInt());
-      iP.setCodigo(TxtCodigoAlter.getText());
+      iP.setCodigoBarra(Integer.parseInt(TxtCodBar.getText()));
+      iP.setNombre(TxtNombre.getText());
+      iP.setDescripcion(TxtDescripcion.getText());
+      iP.setPreCosto(Double.parseDouble(TxtPC.getText()));
+      iP.setPreVenta(Double.parseDouble(TxtPV.getText()));
+      iP.setCategoria(jComboBox1.getToolTipText());
+      iP.setCodigoAltern(TxtCodigoAlter.getText());
+      iP.setUtilidad(Double.parseDouble(TxtUtilidad.getText()));
+              
         if (!"".equals(TxtId.getText()) && !"".equals(TxtCodigoAlter.getText())){
             JOptionPane.showMessageDialog(this, " Datos Registrados Correctamente ","",JOptionPane.INFORMATION_MESSAGE);
             controladores.insertarProducto(iP);
@@ -350,17 +361,16 @@ public void LimpiarFormulario(){
     }//GEN-LAST:event_TxtCodBarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-    /*  Producto eP = new Producto ();
-      eP.setId(Integer.parseInt(TxtId.getText()));
+
       if (!"".equals(TxtId.getText()) ){
             JOptionPane.showMessageDialog(this, " Datos Eliminado Correctamente ","",JOptionPane.INFORMATION_MESSAGE);
-            controladores.eliminarProducto(eP);
+            controladores.eliminarProducto(Integer.parseInt(TxtId.getText()));
         LimpiarFormulario();
         ListarDatos();    
             
       }else{
             JOptionPane.showMessageDialog(this, " Falta Ingresar Id a Eliminar","",JOptionPane.INFORMATION_MESSAGE);
-       }*/
+       }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
@@ -369,19 +379,25 @@ public void LimpiarFormulario(){
     }//GEN-LAST:event_btnListarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-     /*  Producto mP =new Producto();
-       mP.setId(Integer.parseInt(TxtId.getText()));
-       mP.setDescripcion(TxtDescripcion.getText());
-       mP.setCodigo(TxtCodigo.getText());
-      if (!"".equals(TxtId.getText()) && !"".equals(TxtCodigo.getText()) && !"".equals(TxtId.getText()) ){
+      Producto mP =new Producto();
+      mP.setId_Producto(Integer.parseInt(TxtId.getText()));
+      mP.setCodigoBarra(Integer.parseInt(TxtCodBar.getText()));
+      mP.setNombre(TxtNombre.getText());
+      mP.setDescripcion(TxtDescripcion.getText());
+      mP.setPreCosto(Double.parseDouble(TxtPC.getText()));
+      mP.setPreVenta(Double.parseDouble(TxtPV.getText()));
+      mP.setCategoria(jComboBox1.getToolTipText());
+      mP.setCodigoAltern(TxtCodigoAlter.getText());
+      mP.setUtilidad(Double.parseDouble(TxtUtilidad.getText()));
+      if (!"".equals(TxtId.getText()) && !"".equals(TxtCodBar.getText()) && !"".equals(TxtPC.getText()) ){
             JOptionPane.showMessageDialog(this, " Datos Registrados Correctamente ","",JOptionPane.INFORMATION_MESSAGE);
-            controladores.modificarProducto(mP);
+            controladores.actualizarProducto(mP);
         LimpiarFormulario();
         ListarDatos();
       
       }else{
             JOptionPane.showMessageDialog(this, " Falta Rellenar Datos","",JOptionPane.INFORMATION_MESSAGE);
-       }*/
+       }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void TxtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDescripcionActionPerformed
@@ -403,6 +419,10 @@ public void LimpiarFormulario(){
     private void TxtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtNombreActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
    
     public static void main(String args[]) {

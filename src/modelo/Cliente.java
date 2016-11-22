@@ -1,9 +1,7 @@
-
 package modelo;
 
 public class Cliente {
     
-
     private int id_cliente;
     private String nombreoRazonS;
     private int ruc;
