@@ -13,6 +13,8 @@ public class Detalleventa {
     private double importe;
     private double cambio;
     private double total;
+    
+    public Detalleventa(){}
 
     public Detalleventa(int id, int serie, int almacenproducto, double importe, double cambio, double total) {
         this.id = id;

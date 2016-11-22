@@ -4,88 +4,73 @@ import conexion.ConexionDBM;
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
-import modelo.detalleventa;
+import modelo.Detalleventa;
 
 public class detalleventaDAO extends ConexionDBM{
+    private ArrayList<Detalleventa> lista=new ArrayList<Detalleventa>();
      public detalleventaDAO() {
         con=new ConexionDBM().getInstance();
     }
    
     
-    public ArrayList<detalleventa> reportarDetalleVenta(){
-        detalleventa to=null;
-        ArrayList<detalleventa> lista=new ArrayList<detalleventa>();
+    public ArrayList<Detalleventa> reportarDetalleVenta(){
+        Detalleventa to=null;
+        ArrayList<Detalleventa> lista=new ArrayList<Detalleventa>();
         con=new ConexionDBM().getInstance();
         
         try {
             rs=con.prepareStatement("select * from persona ").executeQuery();
-            System.out.println("Probar:" +rs.getRow());
+            
             while(rs.next()){
-                //to=new detalleventa(id, serie, aproductoid, importe, cambio, total);
-                to.setId(rs.getInt("id"));
-                to.setSerie(rs.getInt("Serie"));
-                to.setAproductoid(rs.getInt("Aproductoid"));
-                to.setImporte(rs.getDouble("Importe"));
-                to.setCambio(rs.getDouble("Cambio"));
-                to.setTotal(rs.getDouble("Total"));
-                                
-                 
-                lista.add(to);
-                //System.out.println("OJO"+lista.size());
+                Detalleventa venta= new Detalleventa();// Esto crea una nueva variable cada ves que itera no lo mueva
+                venta.setId(rs.getInt("id"));
+                venta.setSerie(rs.getInt("setSerie"));                
+                venta.setAlmacenproducto(rs.getInt("descripcion"));
+                venta.setImporte(rs.getDouble("Importe"));
+                venta.setCambio(rs.getDouble("Cambio"));
+                venta.setTotal(rs.getDouble("total"));
+                lista.add(venta);
             }
         } catch (Exception e) {
+            System.out.println("Error en Listado"); 
+            System.out.println(e.getMessage());
         }        
         return lista;
     }
-    public detalleventa buscarDetalleVenta(int id){
-        detalleventa to=null;               
-        try {
-            rs=con.prepareStatement("select * from "
-                    + " persona where id="+id+" ")
-                    .executeQuery();            
-            if(rs.next()){
-            to=new detalleventa(id, id, id, id, id, id);
-            to.setId(rs.getInt("id"));
-            to.setSerie(rs.getInt("Serie"));  
-            to.setAproductoid(rs.getInt("Aproductoid"));
-            to.setImporte(rs.getInt("Importe"));
-            to.setCambio(rs.getInt("Cambio"));
-            to.setTotal(rs.getInt("Total"));                                 
-            }
-        } catch (Exception e) {}        
-        return to;
-    }
-    
-    public void insertarDetalleVenta(detalleventa to){
+    public void insertarDetalleVenta(Detalleventa to){
         int i=0;
         try {
-            PreparedStatement ps=con.prepareStatement(" INSERT INTO "
+            PreparedStatement venta=con.prepareStatement(" INSERT INTO "
                     + " persona(id, nombres, apellidos)"
                     + " VALUES(?, ?, ?); ");
-                ps.setInt(++i, to.getId());            
-                ps.setInt(++i, to.getSerie());                
-                ps.setInt(++i, to.getAproductoid());
-                ps.setDouble(++i, to.getImporte());
-                ps.setDouble(++i,to.getCambio());
-                ps.setDouble(++i,to.getTotal());
-                ps.execute();     
+                venta.setInt(++i, to.getId());            
+                venta.setInt(++i, to.getSerie());                
+                venta.setInt(++i, to.getAlmacenproducto());
+                venta.setDouble(++i, to.getImporte());
+                venta.setDouble(++i,to.getCambio());
+                venta.setDouble(++i,to.getTotal());
+                venta.execute();     
            
         } catch (Exception e) {
+            System.out.println("Error en Insertar");
+            System.out.println(e.getMessage());
         }        
     }
     
-    public void actualizarDetalleVenta(detalleventa to){
+    public void actualizarDetalleVenta(Detalleventa to){
         int i=0;
         try {
-                PreparedStatement ps=con.prepareStatement(" UPDATE persona SET nombres=?, apellidos=? WHERE id=?; "); 
-                ps.setInt(++i, to.getId());            
-                ps.setInt(++i, to.getSerie());                
-                ps.setInt(++i, to.getAproductoid());
-                ps.setDouble(++i, to.getImporte());
-                ps.setDouble(++i,to.getCambio());
-                ps.setDouble(++i,to.getTotal());     
+                PreparedStatement venta=con.prepareStatement(" UPDATE persona SET nombres=?, apellidos=? WHERE id=?; "); 
+                venta.setInt(++i, to.getId());            
+                venta.setInt(++i, to.getSerie());                
+                venta.setInt(++i, to.getAlmacenproducto());
+                venta.setDouble(++i, to.getImporte());
+                venta.setDouble(++i,to.getCambio());
+                venta.setDouble(++i,to.getTotal());     
            
         } catch (Exception e) {
+            System.out.println("Error en Actualizar Intente de nuevo");
+            System.out.println(e.getMessage());
         }         
     }
     
@@ -98,6 +83,9 @@ public class detalleventaDAO extends ConexionDBM{
                i= ps.executeUpdate();     
            
         } catch (Exception e) {
+            System.out.println("Error en Eliminar");
+            System.out.println(e.getMessage());
+            
         } 
         return i;
     }

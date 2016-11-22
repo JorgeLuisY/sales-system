@@ -15,20 +15,7 @@ public class empleadoDAO extends ConexionDBM{
     public ArrayList<empleado> reportarEmpleado(){
         empleado to=null;
         ArrayList<empleado> lista=new ArrayList<empleado>();
-        /*private int id_empleado;
-    private int  tipoUsuario;
-    private String nombre;
-    private String apellido;
-    private char sexo;
-    private Date fechNac;
-    private String direccion;
-    private String telefono;
-    private int celular;
-    private int dni;
-    private Date fechaIngreso;
-    private String email;
-    private Double Sueldo;
-    private String estado;*/
+    
         con=new ConexionDBM().getInstance();
         
         try {
