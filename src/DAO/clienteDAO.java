@@ -6,69 +6,74 @@ import java.util.*;
 import java.util.Date;
 import modelo.Cliente;
 public class clienteDAO extends ConexionDBM{
-     public clienteDAO() {
-        con=new ConexionDBM().getInstance();
-    }
+   private ArrayList<Cliente> listas=new ArrayList<Cliente>();
    
-    
+   class clienteDAO(){
+       con=new ConexionDBM().getInstance();
+   }
+  
     public ArrayList<Cliente> reportarCliente(){
-        Cliente to=null;
-        ArrayList<Cliente> lista=new ArrayList<Cliente>();
         con=new ConexionDBM().getInstance();
+        
         
         try {
             rs=con.prepareStatement("select * from persona ").executeQuery();
-            System.out.println("Probar:" +rs.getRow());
             while(rs.next()){
-                to=new Cliente(166161, null, 12, 6465, null, null, null);
-                to.setId_cliente(rs.getInt("Id_cliente"));
-                to.setRuc(rs.getInt("Ruc"));                
-                to.setDni(rs.getInt("Dni")); 
-                to.setDireccion(rs.getString("Direccion"));
-                to.setTelefono(rs.getString("Telefono"));
-                to.setObservacion(rs.getString("Observaciones"));
-                lista.add(to);
+                Cliente clien=new Cliente();
+                clien.setId_cliente(rs.getInt("Id_cliente"));
+                clien.setRuc(rs.getInt("Ruc"));                
+                clien.setDni(rs.getInt("Dni")); 
+                clien.setDireccion(rs.getString("Direccion"));
+                clien.setTelefono(rs.getString("Telefono"));
+                clien.setObservacion(rs.getString("Observaciones"));
+                listas.add(clien);
                 //System.out.println("OJO"+lista.size());
             }
         } catch (Exception e) {
         }        
-        return lista;
+        return listas;
     }
-    public Cliente buscarCliente(int id){
-        Cliente to=null;               
+   /* public Cliente buscarCliente(Cliente clien){
+        int i=0;               
         try {
-            rs=con.prepareStatement("select * from "
-                    + " persona where id="+id+" ")
-                    .executeQuery();            
-            if(rs.next()){
-            to=new Cliente(id, null, id, id, null, null, null);
-            to.setId_cliente(rs.getInt("Id_cliente"));
-            to.setRuc(rs.getInt("Ruc"));                
-            to.setDni(rs.getInt("Dni")); 
-            to.setDireccion(rs.getString("Direccion"));
-            to.setTelefono(rs.getString("Telefono"));
-            to.setObservacion(rs.getString("Observaciones"));
+             PreparedStatement iclien=con.prepareStatement(" BUSCAR INTO "
+                    + " clien "
+                    + " VALUES(?, ?, ?, ?, ?); ");
+                iclien.setInt(++i, clien.getId_cliente());            
+                iclien.setString(++i, clien.getNombreoRazonS());
+                iclien.setInt(++i, clien.getRuc());
+                iclien.setInt(++i, clien.getDni());  
+                iclien.setString(++i, clien.getDireccion());
+                iclien.setString(++i, clien.getTelefono());
+                iclien.setString(++i, clien.getObservacion());
+                iclien.executeUpdate();     
+                iclien.close();
             }
-        } catch (Exception e) {}        
-        return to;
-    }
+         catch (SQLException ex) {        
+        System.out.println("Error en buscar");
+            System.out.println(ex.getMessage());
+    }*/
     
-    public void insertarCliente(Cliente to){
+    public void insertarCliente(Cliente clien){
         int i=0;
         try {
-            PreparedStatement ps=con.prepareStatement(" INSERT INTO "
-                    + " persona(id, nombres, apellidos)"
-                    + " VALUES(?, ?, ?); ");
-                ps.setInt(++i, to.getId_cliente());
-                ps.setInt(++i, to.getRuc());
-                ps.setInt(++i, to.getDni());
-                ps.setString(++i, to.getDireccion());
-                ps.setString(++i, to.getTelefono());                
-                ps.setString(++i, to.getObservacion());                          
-                ps.execute();     
-           
-        } catch (Exception e) {
-        }        
+           PreparedStatement iclien=con.prepareStatement(" INSERT INTO "
+                    + " rol "
+                    + " VALUES(?, ?, ?, ?, ?); ");
+                iclien.setInt(++i, clien.getId_cliente());            
+                iclien.setString(++i, clien.getNombreoRazonS());
+                iclien.setInt(++i, clien.getRuc());
+                iclien.setInt(++i, clien.getDni());  
+                iclien.setString(++i, clien.getDireccion());
+                iclien.setString(++i, clien.getTelefono());
+                iclien.setString(++i, clien.getObservacion());
+                iclien.executeUpdate();     
+                iclien.close();
+        } catch (SQLException ex) {
+            System.out.println("Error en Insertar");
+            System.out.println(ex.getMessage());
+        }    
+              
     }
     
     public void actualizarCliente(Cliente to){
@@ -83,7 +88,9 @@ public class clienteDAO extends ConexionDBM{
                 ps.setInt(++i, to.getDni()); 
                 ps.executeUpdate();     
            
-        } catch (Exception e) {
+        } catch (Exception ex) {
+            System.out.println("Error en Actualizar Intente de nuevo");
+            System.out.println(ex.getMessage());
         }         
     }
     
@@ -95,7 +102,9 @@ public class clienteDAO extends ConexionDBM{
                 ps.setInt(++i, id);  
                i= ps.executeUpdate();     
            
-        } catch (Exception e) {
+        } catch (Exception ex) {
+            System.out.println("Error en Eliminar");
+            System.out.println(ex.getMessage());
         } 
         return i;
     }
