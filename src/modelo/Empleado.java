@@ -9,8 +9,8 @@ public class Empleado {
     private int rol;
     private String nombre;
     private String apellido;
-    private char sexo;
-    private Date fechNacimiento;
+    private String sexo;
+    private Timestamp fechNacimiento;
     private String direccion;
     private String telefono;
     private int celular;
@@ -18,8 +18,12 @@ public class Empleado {
     private String email;
     private Double Sueldo;
     private String estado;
+    
+    public Empleado(){
+        
+    }
 
-    public Empleado(int idEmp,String nombre, String apellido, char sexo,String direccion, String telefono, int celular, int dni,
+    public Empleado(int idEmp,String nombre, String apellido, String sexo,String direccion, String telefono, int celular, int dni,
             String email,Double Sueldo, String estado,Date fechaNac,int tipoUsuario,int rol) {
         this.id_empleado = idEmp;
         this.tipoUsuario = tipoUsuario;
@@ -77,19 +81,21 @@ public class Empleado {
         this.apellido = apellido;
     }
 
-    public char getSexo() {
-        return sexo;
+    public String getSexo() {
+        
+        return  sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
+   
         this.sexo = sexo;
     }
 
-    public Date getFechNacimiento() {
+    public Timestamp getFechNacimiento() {
         return fechNacimiento;
     }
 
-    public void setFechNacimiento(Date fechNacimiento) {
+    public void setFechNacimiento(Timestamp fechNacimiento) {
         this.fechNacimiento = fechNacimiento;
     }
 
