@@ -7,6 +7,8 @@ public class Venta {
     private int nroVenta;
     private int cantidad;
     private String tipodocumento;
+    
+    public Venta(){}
 
     public Venta(int serie, int cliente, int nroVenta, int cantidad, String tipodocumento) {
         this.serie = serie;
