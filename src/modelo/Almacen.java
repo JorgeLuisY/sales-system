@@ -7,6 +7,8 @@ public class Almacen {
     private String estado;
     private int stock;
     private int stockmin;
+    
+    public Almacen(){}
 
     public Almacen(int id_alamcen, String estado, int stock, int stockmin) {
         this.id_alamcen = id_alamcen;

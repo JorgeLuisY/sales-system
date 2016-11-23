@@ -4,92 +4,86 @@ import conexion.ConexionDBM;
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
-import modelo.almacen;
+import modelo.Almacen;
 public class almacenDAO extends ConexionDBM{
-    public almacenDAO() {
-        //con=new ConexionDBM().getInstance();
-    }
-   
     
-    public ArrayList<almacen> mostrarProducto(){
-        almacen to=null;
-        ArrayList<almacen> lista=new ArrayList<almacen>();
-        con=new  ConexionDBM ().getInstance();
+    ArrayList<Almacen> lista=new ArrayList<Almacen>();
+    
+    public almacenDAO() {
         
+       con=new ConexionDBM().getInstance();
+    }      
+       public ArrayList<Almacen> reportaAlmacen(){
+        con = new ConexionDBM().getInstance();
         try {
-            rs=con.prepareStatement("select * from persona ").executeQuery();
-            System.out.println("Probar:" +rs.getRow());
+            rs=con.prepareStatement("SELECT * FROM ROL ORDER BY 1").executeQuery();
             while(rs.next()){
-                to=new almacen(20154, null, 8, 5);
-                to.setId_alamcen(rs.getInt("id_almcen"));
-                //to.setStock(rs.getString());                
-                //to.setStockmin(rs.getString("stockmin")); 
-                lista.add(to);
-                //System.out.println("OJO"+lista.size());
+                Almacen almacenes= new Almacen();// Esto crea una nueva variable cada ves que itera no lo mueva
+                almacenes.setId_alamcen(rs.getInt("id"));
+                almacenes.setEstado(rs.getString("estado")); 
+                almacenes.setStock(rs.getInt("stock"));
+                almacenes.setStockmin(rs.getInt("stockmin"));
+                
+                lista.add(almacenes);
             }
-        } catch (Exception e) {
+        } catch (Exception ex) {
+            System.out.println("Error en Listado"); 
+            System.out.println(ex.getMessage());
         }        
         return lista;
     }
-    public almacen buscarProduct(int id){
-        almacen to=null;               
-        try {
-            rs=con.prepareStatement("select * from "
-                    + " persona where id="+id+" ")
-                    .executeQuery();            
-            if(rs.next()){
-            to=new almacen(id, null, id, id);
-            to.setId_alamcen(rs.getInt("id_alamcen"));
-            to.setEstado(rs.getString("Estado"));                
-            //to.setStock(rs.getString("Stock")); 
-            to.setStockmin(5);
-            }
-        } catch (Exception e) {}        
-        return to;
-    }
     
-    public void insertarProdcuto(almacen to){
+    public void insertarRol(Almacen almace){
         int i=0;
         try {
-            PreparedStatement ps=con.prepareStatement(" INSERT INTO "
-                    + " persona(id, nombres, apellidos)"
-                    + " VALUES(?, ?, ?); ");
-                ps.setInt(++i, to.getId_alamcen());            
-                ps.setString(++i, to.getEstado());                
-                ps.setInt(++i, to.getStock());
-                ps.setInt(++i, to.getStockmin());
-                ps.execute();     
-           
-        } catch (Exception e) {
+            PreparedStatement ialmacen=con.prepareStatement(" INSERT INTO "
+                    + " rol "
+                    + " VALUES(?, ?, ?, ?, ?); ");
+                ialmacen.setInt(++i, almace.getId_alamcen());            
+                ialmacen.setString(++i, almace.getEstado());
+                ialmacen.setInt(++i, almace.getStock());
+                ialmacen.setInt(++i, almace.getStockmin());
+                ialmacen.executeUpdate();     
+                ialmacen.close();
+        } catch (SQLException ex) {
+            System.out.println("Error en Insertar");
+            System.out.println(ex.getMessage());
         }        
     }
     
-    public void actualizarProducto(almacen to){
+    public void actualizarRol(Almacen almace){
         int i=0;
         try {
-                PreparedStatement ps=con.prepareStatement(" UPDATE persona SET nombres=?, apellidos=? WHERE id=?; ");                          
-                ps.setString(++i, to.getEstado());                
-                ps.setInt(++i, to.getStock());  
-                ps.setInt(++i, to.getStockmin());
-                //ps.setInt(++i, to.setId_alamcen(5554));
-                ps.executeUpdate();     
+                PreparedStatement aAlmacen=con.prepareStatement(" UPDATE rol SET rolnombre=?, descripcion=?, rolvalor=?, estado=? WHERE id=?; ");                          
+                aAlmacen.setInt(++i, almace.getId_alamcen());                
+                aAlmacen.setString(++i, almace.getEstado()); 
+                aAlmacen.setInt(++i, almace.getStock());
+                aAlmacen.setInt(++i, almace.getStockmin());  
+                aAlmacen.executeUpdate();  
+                aAlmacen.close();
            
-        } catch (Exception e) {
+        } catch (Exception ex) {
+            System.out.println("Error en Actualizar Intente de nuevo");
+            System.out.println(ex.getMessage());
         }         
     }
     
-    
-    public int eliminarProducto(int id){
+    public int eliminarRol(int id){
         int i=0;
         try {
-                PreparedStatement ps=con.prepareStatement(" DELETE FROM persona WHERE id=?  ");
-                ps.setInt(++i, id);  
-               i= ps.executeUpdate();     
+                PreparedStatement erol=con.prepareStatement(" DELETE FROM rol WHERE id=?  ");
+                erol.setInt(++i, id);  
+                i = erol.executeUpdate();
+                erol.close();
            
-        } catch (Exception e) {
+        } catch (Exception ex) {
+            System.out.println("Error en Eliminar");
+            System.out.println(ex.getMessage());
         } 
         return i;
     }
-    
-    
 }
+
+    
+    
+

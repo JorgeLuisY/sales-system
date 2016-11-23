@@ -62,7 +62,7 @@ public class empleadoDAO extends ConexionDBM{
                 iemplea.setString(++i, emplea.getNombre());              
                 iemplea.setString(++i, emplea.getApellido());  
                 iemplea.setString(++i, emplea.getSexo());
-                iemplea.setTimestamp(++i, emplea.getFechaInicio());
+                iemplea.setTimestamp(++i, emplea.getFechNacimiento());
                 iemplea.setString(++i, emplea.getDireccion());
                 iemplea.setString(++i, emplea.getTelefono());
                 iemplea.setInt(++i, emplea.getCelular()); 
