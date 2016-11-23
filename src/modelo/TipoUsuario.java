@@ -9,8 +9,10 @@ public class TipoUsuario {
     private int usuario;
     private int rolid;
     private String creadoPor;
+    private Timestamp fechCreacion;
     private String descripcion;
 
+    public TipoUsuario(){}
     public TipoUsuario(int usuario, int rolid, String creadoPor, String descripcion) {
         this.usuario = usuario;
         this.rolid = rolid;
@@ -19,6 +21,15 @@ public class TipoUsuario {
 
     public int getUsuario() {
         return usuario;
+    }
+    
+    
+    public Timestamp getFechCreacion() {
+        return fechCreacion;
+    }
+
+    public void setFechCreacion(Timestamp fechCreacion) {
+        this.fechCreacion = fechCreacion;
     }
 
     public void setUsuario(int usuario) {

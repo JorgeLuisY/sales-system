@@ -32,11 +32,7 @@ public class ClienteDAO extends ConexionDBM{
         }        
         return listas;
     }
-<<<<<<< HEAD:src/DAO/clienteDAO.java
-   
-=======
-    
->>>>>>> 085225e29c886375ded3984a7141cc630a36703f:src/DAO/ClienteDAO.java
+
     public void insertarCliente(Cliente clien){
         int i=0;
         try {
